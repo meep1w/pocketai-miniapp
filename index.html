@@ -197,6 +197,19 @@
     </div>
 </div>
 
+<!-- Model Modal -->
+<div class="modal" id="modelModal" aria-hidden="true" role="dialog" aria-labelledby="modelTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--model">
+        <h3 class="modal__title" id="modelTitle" data-i18n="model.title">Выберите модель</h3>
+
+        <div class="model-list" id="modelList">
+            <!-- Рендерится из JS: TASSA 2.0, TESSA Plus, TESSA Quantum (disabled) -->
+        </div>
+
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
 
 <!-- Content -->
 <main class="app-main">
@@ -210,13 +223,15 @@
             </div>
         </div>
         <!-- Timeframe -->
-        <div class="ui-field" id="field-time" role="button" tabindex="0"
-             aria-haspopup="dialog" aria-controls="timeModal" aria-label="Select time">
-            <label class="ui-field__label" data-i18n="label.select_time">Выберите время</label>
+        <!-- Model -->
+        <div class="ui-field" id="field-model" role="button" tabindex="0"
+             aria-haspopup="dialog" aria-controls="modelModal" aria-label="Select model">
+            <label class="ui-field__label" data-i18n="label.select_model">Выберите модель</label>
             <div class="ui-field__box">
-                <span class="ui-field__placeholder" data-i18n="ph.select_time">Выберите время</span>
+                <span class="ui-field__placeholder" data-i18n="ph.select_model">Выберите модель</span>
             </div>
         </div>
+
         <!-- Expiration -->
         <div class="ui-field" id="field-expiration" role="button" tabindex="0"
              aria-haspopup="dialog" aria-controls="expireModal" aria-label="Expiration time">
