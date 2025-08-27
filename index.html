@@ -1,292 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>PocketAI Mini App</title>
-    <link rel="icon" type="image/svg+xml" href="static/img/Logo.svg" />
-    <link rel="stylesheet" href="static/css/styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PocketAI — Mini App</title>
+    <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
 
-<!-- Header -->
+<!-- ===== Header ===== -->
 <header class="app-header">
-    <div class="header-left">
-        <button class="icon-btn" id="burgerBtn" aria-label="Открыть меню">
-            <span class="icon icon-burger" aria-hidden="true"></span>
-        </button>
-    </div>
+    <button id="burgerBtn" class="icon-btn" aria-label="Menu">
+        <img src="static/img/burger.svg" alt="">
+    </button>
 
-    <div class="header-logo">
-        <!-- Лого подменяется по теме -->
-        <img id="logoImg"
-             alt="Logo"
+    <div class="header-center">
+        <img id="logoImg" class="logo"
+             src="static/img/Logo.svg"
              data-src-dark="static/img/Logo.svg"
-             data-src-light="static/img/Logo_black.svg" />
+             data-src-light="static/img/Logo_black.svg"
+             alt="PocketAI">
     </div>
 
-    <div class="header-right">
-        <button class="icon-btn" id="rightIconBtn" aria-label="Premium">
-            <span class="icon icon-crown" aria-hidden="true"></span>
-        </button>
-    </div>
+    <button id="rightIconBtn" class="icon-btn" aria-label="Info">
+        <img src="static/img/base.svg" class="tier-img" alt="">
+    </button>
 </header>
 
-<!-- Sidebar -->
-<aside class="sidebar" id="sidebar">
+<!-- ===== Sidebar ===== -->
+<aside id="sidebar" class="sidebar">
     <div class="sidebar__head">
-        <span class="sidebar__title" data-i18n="menu.title">Меню</span>
-        <button class="icon-btn" id="closeSidebar" aria-label="Закрыть меню">✕</button>
+        <div class="title" data-i18n="menu.title">Меню</div>
+        <button id="closeSidebar" class="icon-btn" aria-label="Close">✕</button>
     </div>
-    <nav class="sidebar__nav">
-        <button class="sidebar__item" id="nav-stats">
-            <span class="sidebar__icon"><span class="icon icon-stats"></span></span>
+    <nav class="menu">
+        <button id="nav-stats" class="menu-item">
+            <img src="static/img/icons/stats.svg" alt="">
             <span data-i18n="menu.stats">Ваша статистика</span>
         </button>
-        <button class="sidebar__item" id="nav-lang">
-            <span class="sidebar__icon"><span class="icon icon-globe"></span></span>
+        <button id="nav-lang" class="menu-item">
+            <img src="static/img/icons/globe.svg" alt="">
             <span data-i18n="menu.language">Выбор языка</span>
         </button>
-        <button class="sidebar__item" id="nav-theme">
-            <span class="sidebar__icon"><span class="icon icon-theme"></span></span>
+        <button id="nav-theme" class="menu-item">
+            <img src="static/img/icons/theme.svg" alt="">
             <span data-i18n="menu.theme">Тема</span>
         </button>
     </nav>
 </aside>
 
-<!-- Theme Modal -->
-<div class="modal" id="themeModal" aria-hidden="true" role="dialog" aria-labelledby="themeTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog">
-        <h3 class="modal__title" id="themeTitle" data-i18n="theme.title">Тема</h3>
-        <div class="option-list">
-            <button class="option-item" data-theme="dark">
-                <span class="icon icon-moon"></span><span data-i18n="theme.dark">Тёмная</span>
-            </button>
-            <button class="option-item" data-theme="default">
-                <span class="icon icon-auto"></span><span data-i18n="theme.default">По умолчанию</span>
-            </button>
-            <button class="option-item" data-theme="light">
-                <span class="icon icon-sun"></span><span data-i18n="theme.light">Светлая</span>
-            </button>
-        </div>
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
-    </div>
-</div>
+<!-- ===== Page ===== -->
+<main class="page">
 
-<!-- Premium Modal -->
-<div class="modal" id="premiumModal" aria-hidden="true" role="dialog" aria-labelledby="premiumTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--premium">
-        <div class="premium-icons">
-            <img src="static/img/base.svg" alt="" class="premium-icon">
-            <img src="static/img/arrow.svg" alt="to" class="premium-arrow">
-            <img src="static/img/Premium.svg" alt="" class="premium-icon">
-        </div>
-
-        <h3 class="modal__title" id="premiumTitle" data-i18n="premium.title">Получить Premium</h3>
-
-        <p class="premium-sub" data-i18n="premium.desc">
-            Чтобы получить Premium, соберите 150 сигналов. Premium даёт:
-        </p>
-
-        <ul class="premium-list">
-            <li><span data-i18n="premium.b1">Новая модель анализа — TESSA Quantum</span></li>
-            <li><span data-i18n="premium.b2">Полный доступ ко всем инструментам</span></li>
-            <li><span data-i18n="premium.b3">Более высокая точность сигналов</span></li>
-            <li><span data-i18n="premium.b4">Без лимита на сигналы</span></li>
-        </ul>
-
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
-    </div>
-</div>
-
-<!-- Instruments Modal -->
-<div class="modal" id="instrumentsModal" aria-hidden="true" role="dialog" aria-labelledby="instrTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--instruments">
-        <h3 class="modal__title" id="instrTitle" data-i18n="instr.title">Выберите инструмент</h3>
-
-        <div class="instr-search">
-            <input id="instrSearch" class="instr-search__input" type="text" autocomplete="off" placeholder="Поиск…" />
-            <span class="icon icon-search instr-search__icon" aria-hidden="true"></span>
-        </div>
-
-        <div class="instr-body">
-            <aside class="instr-cats" id="instrCats" role="tablist" aria-label="Categories">
-                <div class="instr-cats__title" data-i18n="instr.categories">КАТЕГОРИИ</div>
-                <button class="instr-cat is-active" data-cat="currencies" role="tab" data-i18n="instr.currencies">Валюты</button>
-                <button class="instr-cat" data-cat="crypto" role="tab" data-i18n="instr.crypto">Криптовалюты</button>
-                <button class="instr-cat" data-cat="stocks" role="tab" data-i18n="instr.stocks">Акции</button>
-                <button class="instr-cat" data-cat="commodities" role="tab" data-i18n="instr.commodities">Сырьё</button>
-                <button class="instr-cat" data-cat="indices" role="tab" data-i18n="instr.indices">Индексы</button>
-            </aside>
-
-            <section class="instr-list" id="instrList" role="listbox" aria-label="Instruments"></section>
-        </div>
-
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
-    </div>
-</div>
-
-<!-- Timeframe Modal -->
-<div class="modal" id="timeModal" aria-hidden="true" role="dialog" aria-labelledby="timeTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--time">
-        <h3 class="modal__title" id="timeTitle" data-i18n="time.title">Выберите время</h3>
-        <div class="tf-list" id="tfList"></div>
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
-    </div>
-</div>
-
-<!-- Expiration Modal -->
-<div class="modal" id="expireModal" aria-hidden="true" role="dialog" aria-labelledby="expireTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--expire">
-        <h3 class="modal__title" id="expireTitle" data-i18n="expire.title">Время экспирации</h3>
-        <div class="exp-list" id="expList"></div>
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
-    </div>
-</div>
-
-<!-- Stats Modal -->
-<div class="modal" id="statsModal" aria-hidden="true" role="dialog" aria-labelledby="statsTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--stats">
-        <h3 class="modal__title" id="statsTitle" data-i18n="stats.title">Your Statistics</h3>
-
-        <div class="stats-rows">
-            <div class="stats-row">
-                <div class="key" data-i18n="stats.tariff">Your tariff:</div>
-                <div class="val" id="stTariff">Base</div>
-            </div>
-            <div class="stats-row">
-                <div class="key" data-i18n="stats.received">Signals received:</div>
-                <div class="val" id="stCount">0</div>
-            </div>
-            <div class="stats-row">
-                <div class="key" data-i18n="stats.accuracy">Signal accuracy:</div>
-                <div class="val" id="stAvg">0%</div>
-            </div>
-        </div>
-
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Close</button>
-    </div>
-</div>
-
-
-<!-- Language Modal -->
-<div class="modal" id="langModal" aria-hidden="true" role="dialog" aria-labelledby="langTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--lang">
-        <h3 class="modal__title" id="langTitle" data-i18n="lang.title">Choose Language</h3>
-
-        <div class="lang-grid">
-            <button class="lang-opt" data-lang="ru" aria-pressed="false">
-                <img src="static/img/lang/ru.svg" alt="" class="lang-flag" />
-                <span data-i18n="lang.ru">Русский</span>
-            </button>
-
-            <button class="lang-opt" data-lang="en" aria-pressed="false">
-                <img src="static/img/lang/en.svg" alt="" class="lang-flag" />
-                <span data-i18n="lang.en">English</span>
-            </button>
-        </div>
-
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Close</button>
-    </div>
-</div>
-
-<!-- Model Modal -->
-<div class="modal" id="modelModal" aria-hidden="true" role="dialog" aria-labelledby="modelTitle">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog modal__dialog--model">
-        <h3 class="modal__title" id="modelTitle" data-i18n="model.title">Выберите модель</h3>
-
-        <div class="model-list" id="modelList">
-            <!-- Рендерится из JS: TASSA 2.0, TESSA Plus, TESSA Quantum (disabled) -->
-        </div>
-
-        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
-    </div>
-</div>
-
-<!-- Content -->
-<main class="app-main">
-    <section class="select-blocks">
-        <!-- Instrument -->
+    <!-- Поля выбора -->
+    <section id="controls" class="controls">
+        <!-- Инструмент -->
         <div class="ui-field" id="field-instrument" role="button" tabindex="0"
-             aria-haspopup="dialog" aria-controls="instrumentsModal" aria-label="Select instrument">
+             aria-haspopup="dialog" aria-controls="instrumentsModal">
             <label class="ui-field__label" data-i18n="label.select_instrument">Выберите инструмент</label>
             <div class="ui-field__box">
                 <span class="ui-field__placeholder" data-i18n="ph.select_instrument">Выберите инструмент</span>
             </div>
         </div>
-        <!-- Timeframe -->
-        <!-- Model -->
+
+        <!-- Модель (TESSA Plus доступна, Quantum disabled в модалке) -->
         <div class="ui-field" id="field-model" role="button" tabindex="0"
-             aria-haspopup="dialog" aria-controls="modelModal" aria-label="Select model">
+             aria-haspopup="dialog" aria-controls="modelModal">
             <label class="ui-field__label" data-i18n="label.select_model">Выберите модель</label>
             <div class="ui-field__box">
                 <span class="ui-field__placeholder" data-i18n="ph.select_model">Выберите модель</span>
             </div>
         </div>
 
-        <!-- Expiration -->
+        <!-- Время сделки -->
         <div class="ui-field" id="field-expiration" role="button" tabindex="0"
-             aria-haspopup="dialog" aria-controls="expireModal" aria-label="Expiration time">
+             aria-haspopup="dialog" aria-controls="expireModal">
             <label class="ui-field__label" data-i18n="label.expiration_time">Время экспирации</label>
             <div class="ui-field__box">
                 <span class="ui-field__placeholder" data-i18n="ph.expiration_time">Выберите время сделки</span>
-                <span class="ui-badge ui-badge--warn" id="expBadge" hidden data-i18n="expire.warn_short">Низкая точность</span>
             </div>
         </div>
+
+        <!-- Старт -->
+        <button id="getSignalBtn" class="primary-btn" data-i18n="btn.get_signal">Получить сигнал</button>
     </section>
 
-    <!-- Actions -->
-    <section class="actions">
-        <button id="getSignalBtn" class="btn btn-primary btn-lg" data-i18n="btn.get_signal">Получить сигнал</button>
-    </section>
-
-    <!-- Signal card -->
-    <section class="signal-card" id="signalCard" data-state="idle">
-        <div class="signal-head">
-            <div class="signal-title">
-                <span class="icon icon-signal"></span>
+    <!-- Карточка сигнала (поток как у VIP) -->
+    <section id="signalCard" class="vip-card" aria-live="polite">
+        <div class="vip-card__head">
+            <div class="ttl">
+                <img src="static/img/icons/signal.svg" alt="">
                 <span data-i18n="signal.title">Сигнал</span>
             </div>
-            <div class="signal-model" data-i18n="signal.model">Модель: TESSA</div>
+            <div class="model signal-model">Модель: <span id="signalModelName">—</span></div>
         </div>
 
-        <div class="signal-body">
-            <div id="signalIdle" class="signal-idle">
-                <span data-i18n="signal.idle">Получить сигнал</span>
-            </div>
+        <!-- До старта -->
+        <div id="idleView" class="idle">
+            <div class="idle__text" data-i18n="signal.idle">Получить сигнал</div>
+        </div>
 
-            <div id="signalLoading" class="signal-loading" >
-                <img src="static/img/loader.gif" alt="" class="signal-loader">
-                <div class="signal-loading-text" data-i18n="signal.analyzing">Анализ...</div>
-            </div>
-
-            <div id="signalResult" class="signal-result" >
-                <div class="signal-inst" id="sigInstrument">—</div>
-                <div class="signal-action" id="sigAction">BUY</div>
-                <div class="signal-meta">
-                    <div><span data-i18n="signal.exp">Время сделки:</span> <b id="sigExp">—</b></div>
-                    <div><span data-i18n="signal.acc">Точность:</span> <b id="sigAcc">—%</b></div>
-                    <div class="signal-received"><span data-i18n="signal.received">Получено в:</span> <span id="sigTime">—</span></div>
+        <!-- Шаги анализа -->
+        <div id="analysisSteps" class="steps" hidden>
+            <div class="step" data-step="1">
+                <div class="step__icon"></div>
+                <div class="step__content">
+                    <div class="step__title">Технический анализ</div>
+                    <div class="step__sub">Индикаторы и уровни S/R</div>
                 </div>
-                <div class="signal-warn" id="sigWarn" hidden data-i18n="signal.low_acc_warn">Низкая точность: будьте аккуратнее.</div>
+                <div class="step__state"></div>
             </div>
+
+            <div class="step" data-step="2">
+                <div class="step__icon"></div>
+                <div class="step__content">
+                    <div class="step__title">Распознавание паттернов</div>
+                    <div class="step__sub">Тренды и фигуры</div>
+                </div>
+                <div class="step__state"></div>
+            </div>
+
+            <div class="step" data-step="3">
+                <div class="step__icon"></div>
+                <div class="step__content">
+                    <div class="step__title">Математические расчёты</div>
+                    <div class="step__sub">Вероятности и риски</div>
+                </div>
+                <div class="step__state"></div>
+            </div>
+
+            <div class="step" data-step="4">
+                <div class="step__icon"></div>
+                <div class="step__content">
+                    <div class="step__title">Генерация сигнала</div>
+                    <div class="step__sub">Финальная сборка</div>
+                </div>
+                <div class="step__state"></div>
+            </div>
+
+            <div class="progress"><div id="progressBar" class="progress__bar"></div></div>
+            <div id="progressText" class="progress__text">0%</div>
+        </div>
+
+        <!-- Результат -->
+        <div id="resultView" class="result" hidden>
+            <div class="dir-wrap">
+                <div id="dirArrow" class="dir-arrow up"></div>
+                <div id="dirText" class="dir-text up">UP</div>
+            </div>
+
+            <!-- 2 колонки × 3 блока -->
+            <div class="info-grid info-2x3">
+                <!-- слева -->
+                <div class="info">
+                    <div class="key">Рынок:</div>
+                    <div class="val">OTC</div>
+                </div>
+                <!-- справа -->
+                <div class="info">
+                    <div class="key">Уверенность:</div>
+                    <div id="resConf" class="val">—%</div>
+                </div>
+
+                <!-- слева -->
+                <div class="info">
+                    <div class="key">Время:</div>
+                    <div id="resTime" class="val">—</div>
+                </div>
+                <!-- справа -->
+                <div class="info">
+                    <div class="key">Сила:</div>
+                    <div id="resStrength" class="val">—</div>
+                </div>
+
+                <!-- слева -->
+                <div class="info">
+                    <div class="key">Пара:</div>
+                    <div id="resPair" class="val">—</div>
+                </div>
+                <!-- справа -->
+                <div class="info">
+                    <div class="key">Действует до:</div>
+                    <div id="resValid" class="val">—:—</div>
+                </div>
+            </div>
+
+            <!-- одна строка на два блока -->
+            <div class="info-grid row-2col">
+                <div class="info badge-block">
+                    <div id="resAcc" class="big">—%</div>
+                    <div class="sub">точность</div>
+                </div>
+                <div class="info badge-block">
+                    <div id="resVol" class="big">Low</div>
+                    <div class="sub">объём</div>
+                </div>
+            </div>
+
+            <!-- полный ряд -->
+            <div class="info risk-full">
+                <div class="key">Риск</div>
+                <div id="resRisk" class="val">Medium</div>
+            </div>
+        </div>
     </section>
 
-    <!-- Reset link (показываем только когда есть результат) -->
-    <section class="reset-wrap" id="resetWrap" hidden>
-        <button id="resetBtn" class="btn-link" data-i18n="btn.reset">Сбросить</button>
-    </section>
-
+    <!-- Сброс (показывается только после результата) -->
+    <div id="resetWrap" class="reset-wrap" hidden>
+        <button id="resetBtn" class="reset-btn" data-i18n="btn.reset">Сбросить</button>
+    </div>
 </main>
 
+<!-- ===== Modals ===== -->
+
+<!-- Instruments modal -->
+<div class="modal" id="instrumentsModal" aria-hidden="true" role="dialog" aria-labelledby="instrTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--instr">
+        <h3 class="modal__title" id="instrTitle" data-i18n="instr.title">Выберите инструмент</h3>
+
+        <!-- Поиск сверху -->
+        <div class="instr__search">
+            <div class="search">
+                <img src="static/img/icons/search.svg" alt="">
+                <input id="instrSearch" type="text" placeholder="Поиск...">
+            </div>
+        </div>
+
+        <div class="instr__layout">
+            <aside class="instr__cats">
+                <div class="cats-title" data-i18n="instr.categories">КАТЕГОРИИ</div>
+                <button class="instr-cat is-active" data-cat="currencies" type="button" data-i18n="instr.currencies">Валюты</button>
+                <button class="instr-cat" data-cat="crypto"      type="button" data-i18n="instr.crypto">Криптовалюты</button>
+                <button class="instr-cat" data-cat="stocks"      type="button" data-i18n="instr.stocks">Акции</button>
+                <button class="instr-cat" data-cat="commodities" type="button" data-i18n="instr.commodities">Сырьё</button>
+                <button class="instr-cat" data-cat="indices"     type="button" data-i18n="instr.indices">Индексы</button>
+            </aside>
+
+            <div class="instr__list">
+                <div id="instrList" class="items"></div>
+            </div>
+        </div>
+
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
+
+<!-- Model modal -->
+<div class="modal" id="modelModal" aria-hidden="true" role="dialog" aria-labelledby="modelTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--model">
+        <h3 class="modal__title" id="modelTitle" data-i18n="model.title">Выберите модель</h3>
+        <div id="modelList" class="model-list"><!-- генерится в JS --></div>
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
+
+<!-- Expiration modal -->
+<div class="modal" id="expireModal" aria-hidden="true" role="dialog" aria-labelledby="expTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--exp">
+        <h3 class="modal__title" id="expTitle" data-i18n="expire.title">Время экспирации</h3>
+        <div id="expList" class="exp-list"></div>
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
+
+<!-- Theme modal -->
+<div class="modal" id="themeModal" aria-hidden="true" role="dialog" aria-labelledby="themeTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--theme">
+        <h3 class="modal__title" id="themeTitle" data-i18n="theme.title">Тема</h3>
+        <div class="theme-list">
+            <button class="option-item" data-theme="dark"><img src="static/img/icons/moon.svg" alt=""><span data-i18n="theme.dark">Тёмная</span></button>
+            <button class="option-item" data-theme="default"><img src="static/img/icons/auto.svg" alt=""><span data-i18n="theme.default">По умолчанию</span></button>
+            <button class="option-item" data-theme="light"><img src="static/img/icons/sun.svg" alt=""><span data-i18n="theme.light">Светлая</span></button>
+        </div>
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
+
+<!-- Language modal -->
+<div class="modal" id="langModal" aria-hidden="true" role="dialog" aria-labelledby="langTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--lang">
+        <h3 class="modal__title" id="langTitle">Choose Language</h3>
+        <div class="lang-grid">
+            <button class="lang-opt" data-lang="ru"><img src="static/img/lang/ru.svg" class="lang-flag" alt=""><span>Русский</span></button>
+            <button class="lang-opt" data-lang="en"><img src="static/img/lang/en.svg" class="lang-flag" alt=""><span>English</span></button>
+        </div>
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Close</button>
+    </div>
+</div>
+
+<!-- Stats modal -->
+<div class="modal" id="statsModal" aria-hidden="true" role="dialog" aria-labelledby="statsTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--stats">
+        <h3 class="modal__title" id="statsTitle" data-i18n="stats.title">Ваша статистика</h3>
+        <div class="stats-rows">
+            <div class="stats-row"><div class="key" data-i18n="stats.tariff">Ваш тариф:</div><div class="val" id="stTariff" data-i18n="stats.base">Base</div></div>
+            <div class="stats-row"><div class="key" data-i18n="stats.received">Сигналов получено:</div><div class="val" id="stCount">0</div></div>
+            <div class="stats-row"><div class="key" data-i18n="stats.accuracy">Средняя точность:</div><div class="val" id="stAvg">0%</div></div>
+        </div>
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
+
+<!-- VIP info modal -->
+<div class="modal" id="vipInfoModal" aria-hidden="true" role="dialog" aria-labelledby="vipInfoTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog modal__dialog--vip">
+        <div class="vipinfo-hero">
+            <img src="static/img/base.svg" alt="Base" class="vipinfo-ic">
+            <img src="static/img/arrow.svg" alt="→" class="vipinfo-arr">
+            <img src="static/img/Premium.svg" alt="VIP" class="vipinfo-ic">
+        </div>
+
+        <h3 class="modal__title" id="vipInfoTitle" data-i18n="vipinfo.title">Base / VIP</h3>
+
+        <p class="vipinfo-note" data-i18n="vipinfo.note">
+            Для получения тарифа VIP, свяжитесь с поддержкой, указанной в боте.
+        </p>
+
+        <div class="vipinfo-list">
+            <div class="vipinfo-item" data-i18n="vipinfo.b1">Точность сигналов выше с VIP</div>
+            <div class="vipinfo-item" data-i18n="vipinfo.b2">Открытие ещё трёх категорий</div>
+            <div class="vipinfo-item" data-i18n="vipinfo.b3">Приоритетная поддержка</div>
+            <div class="vipinfo-item" data-i18n="vipinfo.b4">Новая модель аналитики рынка для выдачи сигналов</div>
+        </div>
+
+        <button class="modal__close" data-close-modal data-i18n="btn.close">Закрыть</button>
+    </div>
+</div>
+
+
+<!-- ===== Scripts ===== -->
 <script src="static/js/header.js"></script>
 </body>
 </html>

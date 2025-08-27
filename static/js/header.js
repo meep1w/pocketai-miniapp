@@ -12,6 +12,7 @@ const I18N = {
         "theme.dark": "Dark",
         "theme.light": "Light",
         "theme.default": "Default",
+
         "btn.close": "Close",
         "btn.get_signal": "Get Signal",
         "btn.reset": "Reset",
@@ -32,43 +33,31 @@ const I18N = {
         "instr.indices": "Indices",
 
         "model.title": "Choose a model",
-        "model.tassa2": "TASSA 2.0",
         "model.tessa_plus": "TESSA Plus",
         "model.tessa_quantum": "TESSA Quantum",
-        "model.vip_required": "TESSA Quantum requires VIP access. See details via the top icon.",
-
+        "toast.cat_locked": "Available for Platinum only.",
         "expire.title": "Expiration time",
-        "expire.warn_short": "Low accuracy",
 
         "signal.title":"Signal",
         "signal.model_prefix":"Model:",
         "signal.idle":"Get Signal",
         "signal.analyzing":"Analyzing...",
-        "signal.exp":"Expiration:",
-        "signal.acc":"Accuracy:",
-        "signal.received":"Received at:",
-        "signal.low_acc_warn":"Low accuracy: trade carefully.",
-
-        "premium.title":"Base / Platinum",
-        "premium.desc":"Get 150 signals to unlock the benefits of Platinum.",
-        "premium.b1":"Signal accuracy is higher with Platinum",
-        "premium.b2":"Opening of three more categories",
-        "premium.b3":"Keep trading and you will receive a VIP",
-        "premium.b4":"To learn more about the VIP membership, please contact our support team via the bot",
 
         "toast.fill_all":"Please select instrument, model and expiration first.",
-        "toast.vip_required":"TESSA Quantum requires VIP access. See details via the top icon.",
-        "toast.cat_locked": "Available on Platinum (150 signals).",
+        "toast.vip_required":"TESSA Quantum requires Platinum access. See details via the top icon.",
 
         "stats.title":"Your Statistics",
         "stats.tariff":"Your tariff:",
         "stats.received":"Signals received:",
         "stats.accuracy":"Signal accuracy:",
-        "stats.base":"Base",
-        "stats.platinum":"Platinum",
+        "vipinfo.title": "Base / Platinum",
+        "vipinfo.note": "To get Platinum, contact support in our bot.",
+        "vipinfo.b1": "Higher signal accuracy with Platinum",
+        "vipinfo.b2": "Unlock three more categories",
+        "vipinfo.b3": "Priority support",
+        "vipinfo.b4": "New market analysis model for signal generation",
 
-        "banner.platinum_title": "Platinum unlocked!",
-        "banner.platinum_desc": "Accuracy is now always ≥70%."
+        "stats.base":"Base",
     },
     ru: {
         "menu.title": "Меню",
@@ -80,6 +69,7 @@ const I18N = {
         "theme.dark": "Тёмная",
         "theme.light": "Светлая",
         "theme.default": "По умолчанию",
+
         "btn.close": "Закрыть",
         "btn.get_signal": "Получить сигнал",
         "btn.reset": "Сбросить",
@@ -100,54 +90,40 @@ const I18N = {
         "instr.indices": "Индексы",
 
         "model.title": "Выберите модель",
-        "model.tassa2": "TASSA 2.0",
         "model.tessa_plus": "TESSA Plus",
         "model.tessa_quantum": "TESSA Quantum",
-        "model.vip_required": "Чтобы использовать TESSA Quantum, нужен VIP доступ. Подробности — через иконку сверху.",
 
         "expire.title": "Время экспирации",
-        "expire.warn_short": "Низкая точность",
-
+        "toast.cat_locked": "Доступно только для Platinum.",
         "signal.title":"Сигнал",
         "signal.model_prefix":"Модель:",
         "signal.idle":"Получить сигнал",
         "signal.analyzing":"Анализ...",
-        "signal.exp":"Время сделки:",
-        "signal.acc":"Точность:",
-        "signal.received":"Получено в:",
-        "signal.low_acc_warn":"Низкая точность: будьте аккуратнее.",
-
-        "premium.title":"Base / Platinum",
-        "premium.desc":"Получите 150 сигналов, чтобы открыть преимущества Platinum.",
-        "premium.b1":"Точность сигналов выше с Platinum",
-        "premium.b2":"Открытие еще трех категорий",
-        "premium.b3":"Продолжайте торговать и вы получите VIP",
-        "premium.b4":"Для ознакомления с условиями о переходе в VIP напишите в поддержку в нашем боте",
 
         "toast.fill_all":"Сначала выберите инструмент, модель и время сделки.",
-        "toast.vip_required":"Чтобы использовать TESSA Quantum, нужен VIP доступ. Подробности — через иконку сверху.",
-        "toast.cat_locked": "Доступно на Platinum (150 сигналов).",
+        "toast.vip_required":"Чтобы использовать TESSA Quantum, нужен Platinum доступ. Подробности — через иконку сверху.",
 
         "stats.title":"Ваша статистика",
         "stats.tariff":"Ваш тариф:",
         "stats.received":"Сигналов получено:",
         "stats.accuracy":"Средняя точность:",
-        "stats.base":"Base",
-        "stats.platinum":"Platinum",
+        "vipinfo.title": "Base / VIP",
+        "vipinfo.note": "Для получения тарифа Platinum, свяжитесь с поддержкой, указанной в боте.",
+        "vipinfo.b1": "Точность сигналов выше с Platinum",
+        "vipinfo.b2": "Открытие ещё трёх категорий",
+        "vipinfo.b3": "Приоритетная поддержка",
+        "vipinfo.b4": "Новая модель аналитики рынка для выдачи сигналов",
 
-        "banner.platinum_title": "Вы перешли на тариф Platinum!",
-        "banner.platinum_desc": "Точность теперь всегда ≥70%."
+        "stats.base":"Base",
     }
 };
 
 const KEYS = {
     THEME: "theme_choice",
     LANG: "lang_choice",
-    FIELDS: "fields_state",          // {instrument, model, expiration}
-    SIGNAL: "signal_state",          // {state,inst,exp,dir,acc,receivedISO,warn,model}
-    COOLDOWN_END: "cooldown_end",    // timestamp ms
-    ANALYZE_END: "analyze_end",      // timestamp ms
-    STATS: "stats"                   // {count, sumAcc}
+    FIELDS: "fields_state",   // {instrument, model, expiration}
+    SIGNAL: "signal_state",   // {pair, exp, dir, conf, strength, valid, acc}
+    STATS: "stats"            // {count, sumAcc}
 };
 
 /* =============================================
@@ -178,7 +154,7 @@ function updateThemeAssets(effectiveTheme){
     if (logo) {
         const darkSrc  = logo.getAttribute('data-src-dark');
         const lightSrc = logo.getAttribute('data-src-light');
-        logo.src = (effectiveTheme === 'light') ? lightSrc : darkSrc;
+        if (darkSrc && lightSrc) logo.src = (effectiveTheme === 'light') ? lightSrc : darkSrc;
     }
 }
 function setHtmlTheme(theme) {
@@ -202,11 +178,16 @@ function initTheme() {
 const burger = document.getElementById('burgerBtn');
 const sidebar = document.getElementById('sidebar');
 const closeBtn = document.getElementById('closeSidebar');
-const openSidebar = () => sidebar.classList.add('open');
-const closeSidebarFn = () => sidebar.classList.remove('open');
+const openSidebar = () => sidebar?.classList.add('open');
+const closeSidebarFn = () => sidebar?.classList.remove('open');
 burger?.addEventListener('click', openSidebar);
 closeBtn?.addEventListener('click', closeSidebarFn);
-document.addEventListener('click', (e) => { if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !burger.contains(e.target)) closeSidebarFn(); });
+document.addEventListener('click', (e) => {
+    if (!sidebar) return;
+    if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !burger.contains(e.target)) {
+        closeSidebarFn();
+    }
+});
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebarFn(); });
 
 function openModal(id){ document.getElementById(id)?.classList.add('open'); }
@@ -260,27 +241,52 @@ document.querySelectorAll('#langModal .lang-opt').forEach(b=>{
 });
 document.querySelectorAll('#langModal [data-close-modal]').forEach(el => el.addEventListener('click', () => closeModal('langModal')));
 
-/* Premium modal open (иконка справа) */
-document.getElementById('rightIconBtn')?.addEventListener('click', () => openModal('premiumModal'));
-document.querySelectorAll('#premiumModal [data-close-modal]').forEach(el => el.addEventListener('click', () => closeModal('premiumModal')));
+/* Premium modal (иконка справа, если есть) */
+// было: openModal('premiumModal')
+document.getElementById('rightIconBtn')?.addEventListener('click', () => openModal('vipInfoModal'));
+document.querySelectorAll('#vipInfoModal [data-close-modal]')
+    .forEach(el => el.addEventListener('click', () => closeModal('vipInfoModal')));
 
 /* =============================================
-   Instruments modal + locking (Base -> Platinum)
+   Instruments modal
 ============================================= */
+// какие категории блокируем
+const LOCKED_CATS = new Set(['crypto','stocks','commodities']);
+const allowedCats = () => catOrder.filter(c => !LOCKED_CATS.has(c));
+
+function updateInstrumentCatLocks(){
+    document.querySelectorAll('.instr-cat').forEach(btn=>{
+        const cat = btn.getAttribute('data-cat');
+        const locked = LOCKED_CATS.has(cat);
+        btn.classList.toggle('is-locked', locked);
+        btn.setAttribute('aria-disabled', locked ? 'true' : 'false');
+    });
+
+    // если активная категория оказалась заблокированной — переключаемся на первую доступную
+    const active = document.querySelector('.instr-cat.is-active');
+    if (active && LOCKED_CATS.has(active.getAttribute('data-cat'))){
+        const fb = document.querySelector('.instr-cat:not(.is-locked)') || document.querySelector('.instr-cat[data-cat="currencies"]');
+        if (fb){
+            active.classList.remove('is-active');
+            fb.classList.add('is-active');
+            activateCategory(fb.getAttribute('data-cat'));
+        }
+    }
+}
+
+
 const INSTRUMENTS = {
     currencies: ["AED/CNY OTC","AUD/CAD OTC","AUD/USD OTC","BHD/CNY OTC","EUR/CHF OTC","EUR/NZD OTC","EUR/USD OTC","GBP/AUD OTC","LBP/USD OTC","NZD/JPY OTC","SAR/CNY OTC","UAH/USD OTC","USD/ARS OTC","USD/CAD OTC","USD/CLP OTC","USD/CNH OTC","USD/EGP OTC","USD/RUB OTC","ZAR/USD OTC","CHF/NOK OTC","EUR/HUF OTC","EUR/JPY OTC","EUR/RUB OTC","AUD/NZD OTC","AUD/BRL OTC","USD/COP OTC","USD/INR OTC","USD/SGD OTC","CAD/CHF OTC","QAR/CNY OTC","AUD/JPY OTC","OMR/CNY OTC","EUR/GBP OTC","USD/VND OTC","AUD/CHF OTC","USD/THB OTC","USD/DZD OTC","NGN/USD OTC","CAD/JPY OTC","TND/USD OTC","USD/BDT OTC","NZD/USD OTC","USD/MYR OTC","USD/PKR OTC","USD/MXN OTC","GBP/USD OTC","USD/PHP OTC","MAD/USD OTC","JOD/CNY OTC","GBP/JPY OTC","USD/CHF OTC","KES/USD OTC","USD/IDR OTC","CHF/JPY OTC","USD/JPY OTC"],
     crypto: ["Cardano OTC","Bitcoin ETF OTC","BNB OTC","Bitcoin OTC","Polkadot OTC","Ethereum OTC","Litecoin OTC","Polygon OTC","Avalanche OTC","TRON OTC","Toncoin OTC","Solana OTC","Chainlink OTC","Dogecoin OTC","Bitcoin"],
     stocks: ["Apple OTC","Boeing Company OTC","Intel OTC","Johnson & Johnson OTC","Microsoft OTC","Coinbase Global OTC","Marathon Digital Holdings OTC","FedEx OTC","Amazon OTC","VISA OTC","McDonald's OTC","Alibaba OTC","Advanced Micro Devices OTC","American Express OTC","ExxonMobil OTC","Palantir Technologies OTC","VIX OTC","Cisco OTC","Netflix OTC","FACEBOOK INC OTC","Pfizer Inc OTC","Citigroup Inc OTC","Tesla OTC","GameStop Corp OTC"],
     commodities: ["Brent Oil OTC","WTI Crude Oil OTC","Silver OTC","Gold OTC","Natural Gas OTC","Palladium spot OTC","Platinum spot OTC"],
-    indices: ["AUS 200 OTC","100GBP OTC","D30EUR OTC","DJI30 OTC","E35EUR OTC","E50EUR","F40EUR OTC","JPN225 OTC","US100 OTC","SP500 OTC"]
+    indices: ["AUS 200 OTC","100GBP OTC","D30EUR OTC","DJI30 OTC","E35EUR OTC","E50EUR OTC","F40EUR OTC","JPN225 OTC","US100 OTC","SP500 OTC"]
 };
 const catOrder = ["currencies","crypto","stocks","commodities","indices"];
 
-// какие категории закрываем до Platinum
-const LOCKED_CATS = new Set(['crypto','stocks','commodities']);
-
 function renderInstrumentsList(items){
     const list = document.getElementById('instrList');
+    if (!list) return;
     list.innerHTML = "";
     items.forEach(name => {
         const btn = document.createElement('button');
@@ -299,121 +305,83 @@ function activateCategory(cat){
     document.querySelectorAll('.instr-cat').forEach(b => b.classList.toggle('is-active', b.getAttribute('data-cat') === cat));
     renderInstrumentsList(INSTRUMENTS[cat] || []);
 }
-// true если пользователь уже Platinum (>=150 сигналов)
-function isPlatinumActive(){ return isPlatinum(loadStats()); }
-
-// навесить/снять "замок" на кнопках категорий; если активная закрыта — переключить на допустимую
-function updateInstrumentCatLocks(){
-    const platinum = isPlatinumActive();
-    document.querySelectorAll('.instr-cat').forEach(btn => {
-        const cat = btn.getAttribute('data-cat');
-        const locked = LOCKED_CATS.has(cat) && !platinum;
-        btn.classList.toggle('is-locked', locked);
-    });
-
-    // если активная категория закрыта — переключить на доступную
-    const active = document.querySelector('.instr-cat.is-active');
-    if (active){
-        const actCat = active.getAttribute('data-cat');
-        if (LOCKED_CATS.has(actCat) && !platinum){
-            const fallback = document.querySelector('.instr-cat:not(.is-locked)')
-                || document.querySelector('.instr-cat[data-cat="currencies"]');
-            if (fallback){
-                active.classList.remove('is-active');
-                fallback.classList.add('is-active');
-                activateCategory(fallback.getAttribute('data-cat'));
-            }
-        }
-    }
-}
-
 function searchInstruments(q){
     const query = q.trim().toLowerCase();
-    const platinum = isPlatinumActive();
 
     if (!query){
+        // если активная заблокирована — покажем первую доступную
         const active = document.querySelector('.instr-cat.is-active')?.getAttribute('data-cat') || 'currencies';
-        const cat = (!platinum && LOCKED_CATS.has(active)) ? 'currencies' : active;
+        const cat = LOCKED_CATS.has(active) ? (allowedCats()[0] || 'currencies') : active;
         renderInstrumentsList(INSTRUMENTS[cat] || []);
         return;
     }
-    const allowedCats = platinum ? catOrder : catOrder.filter(c => !LOCKED_CATS.has(c));
-    const all = allowedCats.flatMap(c => INSTRUMENTS[c]);
+
+    const all = allowedCats().flatMap(c => INSTRUMENTS[c] || []);
     renderInstrumentsList(all.filter(x => x.toLowerCase().includes(query)));
 }
 
 (function initInstrumentsModal(){
     const field = document.getElementById('field-instrument');
-    field?.addEventListener('click', () => {
-        updateInstrumentCatLocks(); // актуализируем замки перед показом
-        openModal('instrumentsModal');
-    });
-    field?.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); field.click(); }});
+    field?.addEventListener('click', () => openModal('instrumentsModal'));
+    field?.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal('instrumentsModal'); }});
 
     document.querySelectorAll('.instr-cat').forEach(btn => btn.addEventListener('click', () => {
         const cat = btn.getAttribute('data-cat');
-        if (LOCKED_CATS.has(cat) && !isPlatinumActive()){
+        if (LOCKED_CATS.has(cat)){
             showToast(dict()['toast.cat_locked']);
             return;
         }
+        document.querySelectorAll('.instr-cat').forEach(b=>b.classList.remove('is-active'));
+        btn.classList.add('is-active');
         activateCategory(cat);
         document.getElementById('instrSearch').value = "";
     }));
 
     document.getElementById('instrSearch')?.addEventListener('input', (e) => searchInstruments(e.target.value));
 
-    activateCategory('currencies');
-    updateInstrumentCatLocks(); // проставим замки при первом открытии
-    document.querySelectorAll('#instrumentsModal [data-close-modal]').forEach(el => el.addEventListener('click', () => closeModal('instrumentsModal')));
+    // первичная отрисовка
+    updateInstrumentCatLocks();
+    activateCategory( allowedCats()[0] || 'currencies' );
+
+    document.querySelectorAll('#instrumentsModal [data-close-modal]')
+        .forEach(el => el.addEventListener('click', () => closeModal('instrumentsModal')));
 })();
 
+
 /* =============================================
-   Model modal
+   Model modal (TESSA Plus available, TESSA Quantum disabled)
 ============================================= */
 const MODELS = [
-    { id:'tassa2',     labelKey:'model.tassa2',      locked:false },
-    { id:'tessa_plus', labelKey:'model.tessa_plus',  locked:false },
-    { id:'tessa_q',    labelKey:'model.tessa_quantum', locked:true } // cannot select
+    { id:'tessa_plus',   labelKey:'model.tessa_plus',   locked:false },
+    { id:'tessa_q',      labelKey:'model.tessa_quantum', locked:true }
 ];
-
 (function initModelModal(){
     const field = document.getElementById('field-model');
     const wrap  = document.getElementById('modelList');
-
-    function render(selectedId){
+    function render(){
+        if (!wrap) return;
         wrap.innerHTML = '';
         MODELS.forEach(m => {
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'model-item';
-            if (m.locked) btn.setAttribute('disabled','');
+            if (m.locked) btn.disabled = true;
             btn.innerHTML = `
         <span class="model-item__name">${dict()[m.labelKey]}</span>
-        <span class="model-item__tag">${m.locked ? 'VIP' : ''}</span>
+        ${m.locked ? '<span class="model-item__tag">Platinum</span>' : ''}
       `;
             btn.addEventListener('click', () => {
-                if (m.locked){
-                    showToast(dict()['toast.vip_required']);
-                    // openModal('premiumModal'); // по желанию
-                    return;
-                }
+                if (m.locked){ showToast(dict()['toast.vip_required']); return; }
                 setFieldValue('model', dict()[m.labelKey]);
                 updateModelLabel();
                 closeModal('modelModal');
             });
-            if (dict()[m.labelKey] === selectedId) btn.classList.add('is-active');
             wrap.appendChild(btn);
         });
     }
-
-    function openModel(){
-        const current = getField('model'); // хранится строкой label
-        render(current || '');
-        openModal('modelModal');
-    }
-
-    field?.addEventListener('click', openModel);
-    field?.addEventListener('keydown', (e)=>{ if (e.key==='Enter'||e.key===' '){ e.preventDefault(); openModel(); } });
+    function open(){ render(); openModal('modelModal'); }
+    field?.addEventListener('click', open);
+    field?.addEventListener('keydown', (e)=>{ if (e.key==='Enter'||e.key===' '){ e.preventDefault(); open(); }});
     document.querySelectorAll('#modelModal [data-close-modal]').forEach(el => el.addEventListener('click', () => closeModal('modelModal')));
 })();
 
@@ -421,11 +389,11 @@ const MODELS = [
    Expiration modal
 ============================================= */
 const EXPIRES = ['S5','S15','S30','M1','M3','M5','M30','H1','H4'];
-const EXP_WARN_SET = new Set(['S5','S15','S30']);
 (function initExpireModal(){
     const field   = document.getElementById('field-expiration');
     const listEl  = document.getElementById('expList');
     function render(selected){
+        if (!listEl) return;
         listEl.innerHTML = '';
         EXPIRES.forEach(val => {
             const b = document.createElement('button');
@@ -465,11 +433,6 @@ function setFieldValue(kind, value){
     field.setAttribute('data-value', value);
     field.querySelector('.ui-field__placeholder').textContent = value;
 
-    if (kind === 'expiration'){
-        const badge = document.getElementById('expBadge');
-        if (badge) badge.hidden = !EXP_WARN_SET.has(value);
-    }
-
     const f = getFields();
     f[kind] = value;
     saveFields(f);
@@ -489,116 +452,31 @@ function clearFields(){
         el.removeAttribute('data-value');
         el.querySelector('.ui-field__placeholder').textContent = d[phKey];
     });
-    const badge = document.getElementById('expBadge'); if (badge) badge.hidden = true;
 }
 
 /* =============================================
-   Stats & Tier (Base → Platinum @ 150)
+   Stats (без платинум-логики)
 ============================================= */
 function loadStats(){ try { return JSON.parse(localStorage.getItem(KEYS.STATS) || '{}'); } catch(e){ return {}; } }
 function saveStats(o){ localStorage.setItem(KEYS.STATS, JSON.stringify(o||{})); }
-function isPlatinum(stats){ return (stats?.count || 0) >= 150; }
-
-function updateTierIcon(platinum){
-    const btn = document.getElementById('rightIconBtn');
-    if (!btn) return;
-    if (platinum){
-        btn.innerHTML = '<img src="static/img/Premium.svg" alt="" class="tier-img">'; // заменишь на свой «платиновый», если нужно
-    }else{
-        btn.innerHTML = '<span class="icon icon-crown" aria-hidden="true"></span>';
-    }
-}
-function updateModelLabel(){
-    const el = document.querySelector('.signal-model');
-    if (!el) return;
-    const selectedModel = getField('model') || '—';
-    el.textContent = `${dict()['signal.model_prefix']} ${selectedModel}`;
-}
-function updateTierUI(){
-    const s = loadStats();
-    updateTierIcon(isPlatinum(s));
-    updateModelLabel();          // модель = выбранная пользователем
-    updateInstrumentCatLocks();  // снять/повесить замки при апгрейде
-}
 function addSignalToStats(acc){
     const s = loadStats();
-    const wasPlat = isPlatinum(s);
     s.count = (s.count||0) + 1;
     s.sumAcc = (s.sumAcc||0) + (+acc || 0);
     saveStats(s);
-    const nowPlat = isPlatinum(s);
-    updateTierUI();
-    if (!wasPlat && nowPlat) showPlatinumBanner();
 }
 function openStatsModal(){
     const s = loadStats();
     const d = dict();
     const count = s.count || 0;
     const avg = count ? (s.sumAcc / count) : 0;
-    document.getElementById('stTariff')?.replaceChildren(document.createTextNode(isPlatinum(s) ? d['stats.platinum'] : d['stats.base']));
+    document.getElementById('stTariff')?.replaceChildren(document.createTextNode(d['stats.base']));
     document.getElementById('stCount')?.replaceChildren(document.createTextNode(count));
     document.getElementById('stAvg')?.replaceChildren(document.createTextNode(`${Math.round(avg)}%`));
     openModal('statsModal');
 }
 document.getElementById('nav-stats')?.addEventListener('click', openStatsModal);
 document.querySelectorAll('#statsModal [data-close-modal]').forEach(el => el.addEventListener('click', () => closeModal('statsModal')));
-
-/* Platinum banner */
-function showPlatinumBanner(){
-    const DURATION = 8000; // 8 сек
-
-    let el = document.getElementById('tierBanner');
-    if (!el){
-        el = document.createElement('div');
-        el.id = 'tierBanner';
-        el.className = 'top-banner';
-        el.innerHTML = `
-      <img src="static/img/Premium.svg" alt="" class="top-banner__icon">
-      <div class="top-banner__text">
-        <div class="top-banner__title" data-i18n="banner.platinum_title">Platinum unlocked!</div>
-        <div class="top-banner__sub"   data-i18n="banner.platinum_desc">Accuracy is now always ≥70%.</div>
-      </div>
-    `;
-        document.body.appendChild(el);
-        applyI18n(getLang());
-    }
-
-    // показать
-    requestAnimationFrame(() => el.classList.add('show'));
-
-    // спрятать через DURATION
-    setTimeout(() => {
-        el.classList.remove('show');
-        setTimeout(() => { el.remove(); }, 350);
-    }, DURATION);
-}
-
-
-/* =============================================
-   Signal card (states + persistence)
-============================================= */
-function setSignalState(state){
-    const card = document.getElementById('signalCard');
-    if (card) card.setAttribute('data-state', state); // 'idle' | 'loading' | 'result'
-    const s = loadSignal(); s.state = state; saveSignal(s);
-}
-function fillSignalUI(s){
-    document.getElementById('sigInstrument')?.replaceChildren(document.createTextNode(s.inst || '—'));
-    const actEl = document.getElementById('sigAction');
-    if (actEl){
-        actEl.textContent = s.dir || 'BUY';
-        actEl.classList.remove('buy','sell');
-        actEl.classList.add((s.dir || 'BUY').toLowerCase());
-    }
-    document.getElementById('sigExp')?.replaceChildren(document.createTextNode(s.exp || '—'));
-    document.getElementById('sigAcc')?.replaceChildren(document.createTextNode(s.acc != null ? `${(+s.acc).toFixed(2)}%` : '—%'));
-    document.getElementById('sigTime')?.replaceChildren(document.createTextNode(s.receivedISO ? new Date(s.receivedISO).toLocaleTimeString() : '—'));
-    const warnEl = document.getElementById('sigWarn');
-    if (warnEl) warnEl.hidden = !s.warn;
-    updateModelLabel(); // показать выбранную модель в шапке карточки
-}
-function saveSignal(obj){ localStorage.setItem(KEYS.SIGNAL, JSON.stringify(obj || {})); }
-function loadSignal(){ try { return JSON.parse(localStorage.getItem(KEYS.SIGNAL) || '{}'); } catch(e){ return {}; } }
 
 /* =============================================
    Toast
@@ -620,157 +498,193 @@ function showToast(msg){
 }
 
 /* =============================================
-   Get Signal: validation, analyzing, cooldown, persistence
+   Signal card: states, analysis, result
 ============================================= */
-let analyzeTimer = null;
-let cooldownTickTimer = null;
+function updateModelLabel(){
+    const el = document.querySelector('.signal-model');
+    if (!el) return;
+    const selectedModel = getField('model') || '—';
+    el.textContent = `${dict()['signal.model_prefix']} ${selectedModel}`;
+}
 
+function setDirection(isUp){
+    const arrow = document.getElementById('dirArrow');
+    const dirTxt = document.getElementById('dirText');
+    if (!arrow || !dirTxt) return;
+    arrow.classList.toggle('up', isUp);
+    arrow.classList.toggle('down', !isUp);
+    dirTxt.classList.toggle('up', isUp);
+    dirTxt.classList.toggle('down', !isUp);
+    dirTxt.textContent = isUp ? 'UP' : 'DOWN';
+}
+
+function showState(state){
+    const controls = document.getElementById('controls');
+    const idle     = document.getElementById('idleView');
+    const steps    = document.getElementById('analysisSteps');
+    const res      = document.getElementById('resultView');
+    const reset    = document.getElementById('resetWrap');
+
+    if (state === 'start'){
+        controls?.classList.remove('collapsed');
+        if (idle)  idle.hidden  = false;
+        if (steps) steps.hidden = true;
+        if (res)   res.hidden   = true;
+        if (reset) reset.hidden = true;
+    } else if (state === 'analyzing'){
+        controls?.classList.add('collapsed');
+        if (idle)  idle.hidden  = true;
+        if (steps) steps.hidden = false;
+        if (res)   res.hidden   = true;
+        if (reset) reset.hidden = true;
+        document.getElementById('signalCard')?.scrollIntoView({behavior:'smooth', block:'start'});
+    } else if (state === 'result'){
+        controls?.classList.add('collapsed');
+        if (idle)  idle.hidden  = true;
+        if (steps) steps.hidden = true;
+        if (res)   { res.hidden = false; res.classList.remove('result-enter'); requestAnimationFrame(()=>res.classList.add('result-enter')); }
+        if (reset) reset.hidden = false;
+    }
+}
+
+function runStepsAndFinish(onDone){
+    const steps = Array.from(document.querySelectorAll('.step'));
+    const bar   = document.getElementById('progressBar');
+    const txt   = document.getElementById('progressText');
+
+    let i=0;
+    function tick(){
+        if (i>0) steps[i-1].classList.add('done');
+        const progress = Math.min(100, Math.round((i/steps.length)*100));
+        if (bar) bar.style.width = progress + '%';
+        if (txt) txt.textContent = progress + '%';
+
+        if (i < steps.length){
+            i++;
+            setTimeout(tick, 650);
+        } else {
+            setTimeout(()=>{
+                if (bar) bar.style.width='100%';
+                if (txt) txt.textContent='100%';
+                onDone();
+            }, 350);
+        }
+    }
+    steps.forEach(s=>s.classList.remove('done'));
+    if (bar) bar.style.width='0%';
+    if (txt) txt.textContent='0%';
+    tick();
+}
+
+function randomAccuracy(exp){
+    const isSec = /^S/i.test(exp);
+    if (isSec)  return +(30 + Math.random()*55).toFixed(2); // 30–85
+    return +(50 + Math.random()*45).toFixed(2);            // 50–95
+}
+
+function showResult(){
+    const pair = getField('instrument');
+    const exp  = getField('expiration');
+
+    const isUp = Math.random() < 0.5;
+    setDirection(isUp);
+
+    const conf = Math.floor(75 + Math.random()*21);             // 75–95
+    const strength = Math.random()<0.55 ? 'Medium' : 'High';
+    const acc = randomAccuracy(exp);
+    const plusMin = Math.random()<0.5 ? 1 : 2;
+    const valid = new Date(Date.now() + plusMin*60*1000).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+
+    document.getElementById('resTime')?.replaceChildren(document.createTextNode(exp || '—'));
+    document.getElementById('resPair')?.replaceChildren(document.createTextNode(pair || '—'));
+    document.getElementById('resConf')?.replaceChildren(document.createTextNode(conf + '%'));
+    document.getElementById('resStrength')?.replaceChildren(document.createTextNode(strength));
+    document.getElementById('resValid')?.replaceChildren(document.createTextNode(valid));
+    document.getElementById('resAcc')?.replaceChildren(document.createTextNode(acc.toFixed(0) + '%'));
+    document.getElementById('resVol')?.replaceChildren(document.createTextNode(Math.random()<0.5 ? 'Low' : 'Medium'));
+    document.getElementById('resRisk')?.replaceChildren(document.createTextNode(Math.random()<0.6 ? 'Medium' : 'High'));
+
+    addSignalToStats(+acc);
+    showState('result');
+
+    // сохраняем последний результат (если хочешь восстановление после F5)
+    saveSignal({ pair, exp, dir:isUp?'UP':'DOWN', conf, strength, valid, acc });
+}
+
+function saveSignal(obj){ localStorage.setItem(KEYS.SIGNAL, JSON.stringify(obj || {})); }
+function loadSignal(){ try { return JSON.parse(localStorage.getItem(KEYS.SIGNAL) || '{}'); } catch(e){ return {}; } }
+
+/* =============================================
+   Get Signal + Reset
+============================================= */
 function isAllSelected(){
     return Boolean(getField('instrument') && getField('model') && getField('expiration'));
 }
 function updateGetSignalState(){
     const btn = document.getElementById('getSignalBtn');
     if (!btn) return;
-    const cdActive = getCooldownRemaining() > 0;
-    btn.disabled = !isAllSelected() || cdActive;
-}
-function expToSeconds(exp){
-    if (!exp) return 0;
-    const m = exp.match(/^([SMH])(\d+)$/i); if (!m) return 0;
-    const u = m[1].toUpperCase(), v = parseInt(m[2],10);
-    if (u==='S') return v;
-    if (u==='M') return v*60;
-    if (u==='H') return v*3600;
-    return 0;
-}
-function randomDirection(){ return Math.random() < 0.5 ? 'BUY' : 'SELL'; }
-function randomAccuracy(exp){
-    // после Platinum — всегда ≥ 70%
-    if (isPlatinumActive()){
-        const v = 70 + Math.random()*25; // 70–95
-        return Math.round(v*100)/100;
-    }
-    // до Platinum — старая логика
-    const isSec = /^S/i.test(exp);
-    if (isSec){ const v = 30 + Math.random()*55; return Math.round(v*100)/100; } // 30–85
-    const v = 50 + Math.random()*45; return Math.round(v*100)/100; // 50–95
+    btn.disabled = !isAllSelected();
 }
 
-/* cooldown persistence */
-function setCooldownEnd(ts){ if (ts) localStorage.setItem(KEYS.COOLDOWN_END, String(ts)); else localStorage.removeItem(KEYS.COOLDOWN_END); }
-function getCooldownEnd(){ const v = +localStorage.getItem(KEYS.COOLDOWN_END); return Number.isFinite(v) ? v : 0; }
-function getCooldownRemaining(){ const end = getCooldownEnd(); return end>0 ? Math.max(0, Math.ceil((end - Date.now())/1000)) : 0; }
-
-function startCooldown(){
-    const btn = document.getElementById('getSignalBtn');
-    const baseLabel = dict()['btn.get_signal'];
-    const tick = () => {
-        const left = getCooldownRemaining();
-        if (left <= 0){
-            setCooldownEnd(0);
-            btn.textContent = baseLabel;
-            updateGetSignalState();
-            cooldownTickTimer = null;
-            return;
-        }
-        const suffix = left >= 60 ? ` (${Math.ceil(left/60)}m)` : ` (${left}s)`;
-        btn.textContent = baseLabel + suffix;
-        cooldownTickTimer = setTimeout(tick, 1000);
-    };
-    tick();
-}
-
-function startAnalyzing(ms){
-    setSignalState('loading');
-    const end = Date.now() + ms;
-    localStorage.setItem(KEYS.ANALYZE_END, String(end));
-    analyzeTimer = setTimeout(() => {
-        localStorage.removeItem(KEYS.ANALYZE_END);
-        const inst = getField('instrument');
-        const model = getField('model');
-        const exp  = getField('expiration');
-        const dir = randomDirection();
-        const acc = randomAccuracy(exp);
-        const warn = /^S/i.test(exp) && acc < 50; // после Platinum не сработает, т.к. acc >= 70
-        const payload = { state:'result', inst, exp, dir, acc, warn, model, receivedISO: new Date().toISOString() };
-        saveSignal(payload);
-        fillSignalUI(payload);
-        setSignalState('result');
-        document.getElementById('resetWrap')?.removeAttribute('hidden');
-        addSignalToStats(acc); // учёт статистики и возможный апгрейд (баннер)
-    }, ms);
-}
-
-/* main handler */
 (function initGetSignal(){
-    const btn = document.getElementById('getSignalBtn'); if (!btn) return;
+    const btn = document.getElementById('getSignalBtn');
+    if (!btn) return;
     btn.addEventListener('click', () => {
         if (!isAllSelected()){ showToast(dict()['toast.fill_all']); return; }
-        if (getCooldownRemaining() > 0) return;
-
-        // analyzing 3s
-        startAnalyzing(3000);
-
-        // cooldown = expiration
-        const exp = getField('expiration');
-        let seconds = expToSeconds(exp);
-        if (seconds <= 0) seconds = 5;
-        setCooldownEnd(Date.now() + seconds*1000);
-        startCooldown();
-        updateGetSignalState();
+        updateModelLabel();
+        showState('analyzing');
+        runStepsAndFinish(showResult);
     });
 })();
 
-/* Reset */
 function resetAll(){
-    if (analyzeTimer){ clearTimeout(analyzeTimer); analyzeTimer = null; }
-    if (cooldownTickTimer){ clearTimeout(cooldownTickTimer); cooldownTickTimer = null; }
-    localStorage.removeItem(KEYS.ANALYZE_END);
-    setCooldownEnd(0);
-    saveSignal({state:'idle'});
-    setSignalState('idle');
-    document.getElementById('resetWrap')?.setAttribute('hidden','');
-    const btn = document.getElementById('getSignalBtn');
-    btn.textContent = dict()['btn.get_signal'];
+    // очистка UI
+    document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));
+    const bar = document.getElementById('progressBar'); if (bar) bar.style.width='0%';
+    const txt = document.getElementById('progressText'); if (txt) txt.textContent='0%';
+    document.getElementById('resAcc')?.replaceChildren(document.createTextNode('—%'));
+    document.getElementById('resVol')?.replaceChildren(document.createTextNode('Low'));
+    document.getElementById('resRisk')?.replaceChildren(document.createTextNode('Medium'));
+
+    // сбрасываем выбранные поля
     clearFields();
+    updateModelLabel();
     updateGetSignalState();
+
+    // удаляем сохранённый сигнал
+    localStorage.removeItem(KEYS.SIGNAL);
+
+    showState('start');
 }
 document.getElementById('resetBtn')?.addEventListener('click', resetAll);
 
 /* =============================================
-   Restore on load
+   Restore on load (по желанию можно без восстановления результата)
 ============================================= */
 function restoreOnLoad(){
-    // fields
+    // restore fields
     const f = getFields();
     if (f.instrument) setFieldValue('instrument', f.instrument);
     if (f.model)      setFieldValue('model',      f.model);
     if (f.expiration) setFieldValue('expiration', f.expiration);
 
-    // tier UI
-    updateTierUI();
-
-    // signal
-    const s = loadSignal();
-    if (s.state === 'result'){
-        fillSignalUI(s);
-        setSignalState('result');
-        document.getElementById('resetWrap')?.removeAttribute('hidden');
-    } else if (s.state === 'loading' || (+localStorage.getItem(KEYS.ANALYZE_END) || 0) > Date.now()){
-        const end = +localStorage.getItem(KEYS.ANALYZE_END);
-        const msLeft = Math.max(0, end - Date.now());
-        startAnalyzing(msLeft || 1500);
-    } else {
-        setSignalState('idle');
-    }
-
-    // cooldown
-    if (getCooldownRemaining() > 0) startCooldown();
-
-    // актуализируем замки после восстановления
-    updateInstrumentCatLocks();
-
+    updateModelLabel();
     updateGetSignalState();
+
+    // если хочешь возвращать карточку результата после перезагрузки:
+    const s = loadSignal();
+    if (s && s.pair){
+        setDirection((s.dir||'UP')==='UP');
+        document.getElementById('resTime')?.replaceChildren(document.createTextNode(s.exp || '—'));
+        document.getElementById('resPair')?.replaceChildren(document.createTextNode(s.pair || '—'));
+        document.getElementById('resConf')?.replaceChildren(document.createTextNode((s.conf ?? '—') + (s.conf!=null?'%':'')));
+        document.getElementById('resStrength')?.replaceChildren(document.createTextNode(s.strength || '—'));
+        document.getElementById('resValid')?.replaceChildren(document.createTextNode(s.valid || '—:—'));
+        document.getElementById('resAcc')?.replaceChildren(document.createTextNode((s.acc!=null?Number(s.acc).toFixed(0)+'%':'—%')));
+        showState('result');
+    } else {
+        showState('start');
+    }
 }
 
 /* =============================================
