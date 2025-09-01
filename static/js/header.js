@@ -16,6 +16,7 @@ const I18N = {
         "btn.close": "Close",
         "btn.get_signal": "Get Signal",
         "btn.reset": "Reset",
+        "btn.repeat": "Repeat",
 
         "label.select_instrument": "Select instrument",
         "ph.select_instrument": "Select instrument",
@@ -43,6 +44,27 @@ const I18N = {
         "signal.idle":"Get Signal",
         "signal.analyzing":"Analyzing...",
 
+        /* analyzing step labels (base app) */
+        "an.step1": "Technical analysis",
+        "an.step1_sub": "Indicators & S/R",
+        "an.step2": "Patterns recognition",
+        "an.step2_sub": "Trends & figures",
+        "an.step3": "Mathematical calculations",
+        "an.step3_sub": "Probabilities & risks",
+        "an.step4": "Signal generation",
+        "an.step4_sub": "Final assembling",
+
+        /* result labels (base app) */
+        "res.market": "Market:",
+        "res.time": "Time:",
+        "res.pair": "Pair:",
+        "res.confidence": "Confidence:",
+        "res.strength": "Strength:",
+        "res.valid_until": "Valid until:",
+        "lbl.accuracy": "accuracy",
+        "lbl.volume": "volume",
+        "lbl.risk": "risk",
+
         "toast.fill_all":"Please select instrument, model and expiration first.",
         "toast.vip_required":"TESSA Quantum requires Platinum access. See details via the top icon.",
 
@@ -50,14 +72,14 @@ const I18N = {
         "stats.tariff":"Your tariff:",
         "stats.received":"Signals received:",
         "stats.accuracy":"Signal accuracy:",
+        "stats.base":"Base",
+
         "vipinfo.title": "Base / Platinum",
         "vipinfo.note": "To get Platinum, contact support in our bot.",
         "vipinfo.b1": "Higher signal accuracy with Platinum",
         "vipinfo.b2": "Unlock three more categories",
         "vipinfo.b3": "Priority support",
-        "vipinfo.b4": "New market analysis model for signal generation",
-
-        "stats.base":"Base",
+        "vipinfo.b4": "New market analysis model for signal generation"
     },
     ru: {
         "menu.title": "Меню",
@@ -73,6 +95,7 @@ const I18N = {
         "btn.close": "Закрыть",
         "btn.get_signal": "Получить сигнал",
         "btn.reset": "Сбросить",
+        "btn.repeat": "Повторить",
 
         "label.select_instrument": "Выберите инструмент",
         "ph.select_instrument": "Выберите инструмент",
@@ -100,6 +123,25 @@ const I18N = {
         "signal.idle":"Получить сигнал",
         "signal.analyzing":"Анализ...",
 
+        "an.step1": "Технический анализ",
+        "an.step1_sub": "Индикаторы и уровни S/R",
+        "an.step2": "Распознавание паттернов",
+        "an.step2_sub": "Тренды и фигуры",
+        "an.step3": "Математические расчёты",
+        "an.step3_sub": "Вероятности и риски",
+        "an.step4": "Генерация сигнала",
+        "an.step4_sub": "Финальная сборка",
+
+        "res.market": "Рынок:",
+        "res.time": "Время:",
+        "res.pair": "Пара:",
+        "res.confidence": "Уверенность:",
+        "res.strength": "Сила:",
+        "res.valid_until": "Действует до:",
+        "lbl.accuracy": "точность",
+        "lbl.volume": "объём",
+        "lbl.risk": "риск",
+
         "toast.fill_all":"Сначала выберите инструмент, модель и время сделки.",
         "toast.vip_required":"Чтобы использовать TESSA Quantum, нужен Platinum доступ. Подробности — через иконку сверху.",
 
@@ -107,16 +149,67 @@ const I18N = {
         "stats.tariff":"Ваш тариф:",
         "stats.received":"Сигналов получено:",
         "stats.accuracy":"Средняя точность:",
-        "vipinfo.title": "Base / VIP",
+        "stats.base":"Base",
+
+        "vipinfo.title": "Base / Platinum",
         "vipinfo.note": "Для получения тарифа Platinum, свяжитесь с поддержкой, указанной в боте.",
         "vipinfo.b1": "Точность сигналов выше с Platinum",
         "vipinfo.b2": "Открытие ещё трёх категорий",
         "vipinfo.b3": "Приоритетная поддержка",
-        "vipinfo.b4": "Новая модель аналитики рынка для выдачи сигналов",
-
-        "stats.base":"Base",
+        "vipinfo.b4": "Новая модель аналитики рынка для выдачи сигналов"
     }
 };
+
+// ── Spanish (es)
+I18N.es = {
+    "menu.title":"Menú","menu.stats":"Tus estadísticas","menu.language":"Elegir idioma","menu.theme":"Tema",
+    "theme.title":"Tema","theme.dark":"Oscuro","theme.light":"Claro","theme.default":"Predeterminado",
+    "btn.close":"Cerrar","btn.get_signal":"Obtener señal","btn.reset":"Restablecer","btn.repeat":"Repetir",
+    "label.select_instrument":"Seleccione instrumento","ph.select_instrument":"Seleccione instrumento",
+    "label.select_model":"Seleccione modelo","ph.select_model":"Seleccione modelo",
+    "label.expiration_time":"Tiempo de expiración","ph.expiration_time":"Seleccione el tiempo de la operación",
+    "instr.title":"Seleccione instrumento","instr.categories":"CATEGORÍAS","instr.currencies":"Divisas","instr.crypto":"Criptomonedas","instr.stocks":"Acciones","instr.commodities":"Materias primas","instr.indices":"Índices",
+    "model.title":"Elija un modelo","model.tessa_plus":"TESSA Plus","model.tessa_quantum":"TESSA Quantum",
+    "expire.title":"Tiempo de expiración","toast.cat_locked":"Disponible sólo para Platinum.",
+    "signal.title":"Señal","signal.model_prefix":"Modelo:","signal.idle":"Obtener señal","signal.analyzing":"Analizando...",
+    "an.step1":"Análisis técnico","an.step1_sub":"Indicadores y niveles S/R",
+    "an.step2":"Reconocimiento de patrones","an.step2_sub":"Tendencias y figuras",
+    "an.step3":"Cálculos matemáticos","an.step3_sub":"Probabilidades y riesgos",
+    "an.step4":"Generación de señal","an.step4_sub":"Montaje final",
+    "res.market":"Mercado:","res.time":"Tiempo:","res.pair":"Par:","res.confidence":"Confianza:","res.strength":"Fuerza:","res.valid_until":"Válido hasta:",
+    "lbl.accuracy":"precisión","lbl.volume":"volumen","lbl.risk":"riesgo",
+    "toast.fill_all":"Seleccione primero instrumento, modelo y expiración.",
+    "toast.vip_required":"TESSA Quantum requiere acceso Platinum. Vea detalles en el icono superior.",
+    "stats.title":"Tus estadísticas","stats.tariff":"Tu tarifa:","stats.received":"Señales recibidas:","stats.accuracy":"Precisión media:","stats.base":"Base",
+    "vipinfo.title":"Base / Platinum","vipinfo.note":"Para obtener la tarifa Platinum, contacte con el soporte indicado en el bot.",
+    "vipinfo.b1":"Mayor precisión de señales con Platinum","vipinfo.b2":"Apertura de tres categorías más","vipinfo.b3":"Soporte prioritario","vipinfo.b4":"Nuevo modelo de análisis del mercado para generar señales"
+};
+
+// ── Hindi (hi)
+I18N.hi = {
+    "menu.title":"मेनू","menu.stats":"आपकी सांख्यिकी","menu.language":"भाषा चुनें","menu.theme":"थीम",
+    "theme.title":"थीम","theme.dark":"डार्क","theme.light":"लाइट","theme.default":"डिफ़ॉल्ट",
+    "btn.close":"बंद करें","btn.get_signal":"सिग्नल प्राप्त करें","btn.reset":"रीसेट","btn.repeat":"दोहराएं",
+    "label.select_instrument":"इंस्ट्रूमेंट चुनें","ph.select_instrument":"इंस्ट्रूमेंट चुनें",
+    "label.select_model":"मॉडल चुनें","ph.select_model":"मॉडल चुनें",
+    "label.expiration_time":"एक्सपायरी समय","ph.expiration_time":"ट्रांज़ैक्शन का समय चुनें",
+    "instr.title":"इंस्ट्रूमेंट चुनें","instr.categories":"श्रेणियाँ","instr.currencies":"मुद्राएँ","instr.crypto":"क्रिप्टोकरेंसी","instr.stocks":"शेयर","instr.commodities":"कमोडिटीज़","instr.indices":"सूचकांक",
+    "model.title":"मॉडल चुनें","model.tessa_plus":"TESSA Plus","model.tessa_quantum":"TESSA Quantum",
+    "expire.title":"एक्सपायरी समय","toast.cat_locked":"केवल Platinum के लिए उपलब्ध।",
+    "signal.title":"सिग्नल","signal.model_prefix":"मॉडल:","signal.idle":"सिग्नल प्राप्त करें","signal.analyzing":"विश्लेषण हो रहा है...",
+    "an.step1":"टेक्निकल एनालिसिस","an.step1_sub":"इंडिकेटर्स व S/R स्तर",
+    "an.step2":"पैटर्न पहचान","an.step2_sub":"ट्रेंड्स व फिगर्स",
+    "an.step3":"गणितीय गणनाएँ","an.step3_sub":"प्रायिकताएँ व जोखिम",
+    "an.step4":"सिग्नल जेनरेशन","an.step4_sub":"फाइनल असेंबली",
+    "res.market":"मार्केट:","res.time":"समय:","res.pair":"पेयर:","res.confidence":"विश्वास:","res.strength":"शक्ति:","res.valid_until":"मान्य तक:",
+    "lbl.accuracy":"सटीकता","lbl.volume":"वॉल्यूम","lbl.risk":"जोखिम",
+    "toast.fill_all":"कृपया पहले इंस्ट्रूमेंट, मॉडल और एक्सपायरी चुनें।",
+    "toast.vip_required":"TESSA Quantum के लिए Platinum एक्सेस आवश्यक है। विवरण ऊपर के आइकन में देखें।",
+    "stats.title":"आपकी सांख्यिकी","stats.tariff":"आपका टैरिफ:","stats.received":"प्राप्त सिग्नल:","stats.accuracy":"औसत सटीकता:","stats.base":"Base",
+    "vipinfo.title":"Base / Platinum","vipinfo.note":"Platinum टैरिफ पाने के लिए, बॉट में दिए गए सपोर्ट से संपर्क करें।",
+    "vipinfo.b1":"Platinum के साथ अधिक सिग्नल सटीकता","vipinfo.b2":"तीन और श्रेणियाँ अनलॉक","vipinfo.b3":"प्राथमिकता सहायता","vipinfo.b4":"सिग्नल जेनरेशन के लिए नया मार्केट-एनालिटिक्स मॉडल"
+};
+
 
 const KEYS = {
     THEME: "theme_choice",
@@ -131,6 +224,7 @@ const KEYS = {
 ============================================= */
 function getLang(){ return localStorage.getItem(KEYS.LANG) || 'ru'; }
 function dict(){ return I18N[getLang()] || I18N.ru; }
+
 function applyI18n(lang) {
     const d = I18N[lang] || I18N.en;
     document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -139,6 +233,8 @@ function applyI18n(lang) {
         if (/^(INPUT|TEXTAREA)$/.test(el.tagName)) el.setAttribute('placeholder', d[key]);
         else el.textContent = d[key];
     });
+    applyResultStaticLabels();   // подписи result (accuracy/volume/risk)
+    applyExtraLabelsBase();      // шаги анализа + ключи полей результата
 }
 function initI18n(){ applyI18n(getLang()); }
 
@@ -241,8 +337,7 @@ document.querySelectorAll('#langModal .lang-opt').forEach(b=>{
 });
 document.querySelectorAll('#langModal [data-close-modal]').forEach(el => el.addEventListener('click', () => closeModal('langModal')));
 
-/* Premium modal (иконка справа, если есть) */
-// было: openModal('premiumModal')
+/* VIP info modal (иконка справа) */
 document.getElementById('rightIconBtn')?.addEventListener('click', () => openModal('vipInfoModal'));
 document.querySelectorAll('#vipInfoModal [data-close-modal]')
     .forEach(el => el.addEventListener('click', () => closeModal('vipInfoModal')));
@@ -250,7 +345,7 @@ document.querySelectorAll('#vipInfoModal [data-close-modal]')
 /* =============================================
    Instruments modal
 ============================================= */
-// какие категории блокируем
+// блокируем 3 категории
 const LOCKED_CATS = new Set(['crypto','stocks','commodities']);
 const allowedCats = () => catOrder.filter(c => !LOCKED_CATS.has(c));
 
@@ -262,7 +357,6 @@ function updateInstrumentCatLocks(){
         btn.setAttribute('aria-disabled', locked ? 'true' : 'false');
     });
 
-    // если активная категория оказалась заблокированной — переключаемся на первую доступную
     const active = document.querySelector('.instr-cat.is-active');
     if (active && LOCKED_CATS.has(active.getAttribute('data-cat'))){
         const fb = document.querySelector('.instr-cat:not(.is-locked)') || document.querySelector('.instr-cat[data-cat="currencies"]');
@@ -273,7 +367,6 @@ function updateInstrumentCatLocks(){
         }
     }
 }
-
 
 const INSTRUMENTS = {
     currencies: ["AED/CNY OTC","AUD/CAD OTC","AUD/USD OTC","BHD/CNY OTC","EUR/CHF OTC","EUR/NZD OTC","EUR/USD OTC","GBP/AUD OTC","LBP/USD OTC","NZD/JPY OTC","SAR/CNY OTC","UAH/USD OTC","USD/ARS OTC","USD/CAD OTC","USD/CLP OTC","USD/CNH OTC","USD/EGP OTC","USD/RUB OTC","ZAR/USD OTC","CHF/NOK OTC","EUR/HUF OTC","EUR/JPY OTC","EUR/RUB OTC","AUD/NZD OTC","AUD/BRL OTC","USD/COP OTC","USD/INR OTC","USD/SGD OTC","CAD/CHF OTC","QAR/CNY OTC","AUD/JPY OTC","OMR/CNY OTC","EUR/GBP OTC","USD/VND OTC","AUD/CHF OTC","USD/THB OTC","USD/DZD OTC","NGN/USD OTC","CAD/JPY OTC","TND/USD OTC","USD/BDT OTC","NZD/USD OTC","USD/MYR OTC","USD/PKR OTC","USD/MXN OTC","GBP/USD OTC","USD/PHP OTC","MAD/USD OTC","JOD/CNY OTC","GBP/JPY OTC","USD/CHF OTC","KES/USD OTC","USD/IDR OTC","CHF/JPY OTC","USD/JPY OTC"],
@@ -309,7 +402,6 @@ function searchInstruments(q){
     const query = q.trim().toLowerCase();
 
     if (!query){
-        // если активная заблокирована — покажем первую доступную
         const active = document.querySelector('.instr-cat.is-active')?.getAttribute('data-cat') || 'currencies';
         const cat = LOCKED_CATS.has(active) ? (allowedCats()[0] || 'currencies') : active;
         renderInstrumentsList(INSTRUMENTS[cat] || []);
@@ -339,14 +431,12 @@ function searchInstruments(q){
 
     document.getElementById('instrSearch')?.addEventListener('input', (e) => searchInstruments(e.target.value));
 
-    // первичная отрисовка
     updateInstrumentCatLocks();
     activateCategory( allowedCats()[0] || 'currencies' );
 
     document.querySelectorAll('#instrumentsModal [data-close-modal]')
         .forEach(el => el.addEventListener('click', () => closeModal('instrumentsModal')));
 })();
-
 
 /* =============================================
    Model modal (TESSA Plus available, TESSA Quantum disabled)
@@ -455,7 +545,7 @@ function clearFields(){
 }
 
 /* =============================================
-   Stats (без платинум-логики)
+   Stats
 ============================================= */
 function loadStats(){ try { return JSON.parse(localStorage.getItem(KEYS.STATS) || '{}'); } catch(e){ return {}; } }
 function saveStats(o){ localStorage.setItem(KEYS.STATS, JSON.stringify(o||{})); }
@@ -523,51 +613,60 @@ function showState(state){
     const idle     = document.getElementById('idleView');
     const steps    = document.getElementById('analysisSteps');
     const res      = document.getElementById('resultView');
-    const reset    = document.getElementById('resetWrap');
+    const actions  = document.getElementById('actionWrap') || document.getElementById('resetWrap');
 
     if (state === 'start'){
         controls?.classList.remove('collapsed');
         if (idle)  idle.hidden  = false;
         if (steps) steps.hidden = true;
         if (res)   res.hidden   = true;
-        if (reset) reset.hidden = true;
+        if (actions) actions.hidden = true;
     } else if (state === 'analyzing'){
         controls?.classList.add('collapsed');
         if (idle)  idle.hidden  = true;
         if (steps) steps.hidden = false;
         if (res)   res.hidden   = true;
-        if (reset) reset.hidden = true;
+        if (actions) actions.hidden = true;
         document.getElementById('signalCard')?.scrollIntoView({behavior:'smooth', block:'start'});
     } else if (state === 'result'){
         controls?.classList.add('collapsed');
         if (idle)  idle.hidden  = true;
         if (steps) steps.hidden = true;
         if (res)   { res.hidden = false; res.classList.remove('result-enter'); requestAnimationFrame(()=>res.classList.add('result-enter')); }
-        if (reset) reset.hidden = false;
+        if (actions) actions.hidden = false;
     }
 }
 
-function runStepsAndFinish(onDone){
+/* дольше и с бОльшим разбросом: ~3.2–6.5s */
+function randomAnalyzeDuration(){
+    const min=3200, max=6500;
+    const a=Math.random(), b=Math.random(); // «треугольное» распределение
+    return Math.floor(min + ((a+b)/2)*(max-min));
+}
+
+function runStepsAndFinish(totalMs, onDone){
     const steps = Array.from(document.querySelectorAll('.step'));
     const bar   = document.getElementById('progressBar');
     const txt   = document.getElementById('progressText');
 
-    let i=0;
+    const n = steps.length || 4;
+    const base = totalMs / n;
+    const parts = Array.from({length:n},()=> base * (0.85 + Math.random()*0.3));
+    const sum = parts.reduce((a,b)=>a+b,0);
+    for (let i=0;i<n;i++) parts[i] = parts[i]*totalMs/sum;
+
+    let i = 0;
     function tick(){
         if (i>0) steps[i-1].classList.add('done');
-        const progress = Math.min(100, Math.round((i/steps.length)*100));
+        const progress = Math.min(100, Math.round((i/n)*100));
         if (bar) bar.style.width = progress + '%';
         if (txt) txt.textContent = progress + '%';
 
-        if (i < steps.length){
-            i++;
-            setTimeout(tick, 650);
+        if (i < n){
+            const delay = parts[i++];
+            setTimeout(tick, delay);
         } else {
-            setTimeout(()=>{
-                if (bar) bar.style.width='100%';
-                if (txt) txt.textContent='100%';
-                onDone();
-            }, 350);
+            setTimeout(()=>{ if (bar) bar.style.width='100%'; if (txt) txt.textContent='100%'; onDone(); }, 300);
         }
     }
     steps.forEach(s=>s.classList.remove('done'));
@@ -580,6 +679,43 @@ function randomAccuracy(exp){
     const isSec = /^S/i.test(exp);
     if (isSec)  return +(30 + Math.random()*55).toFixed(2); // 30–85
     return +(50 + Math.random()*45).toFixed(2);            // 50–95
+}
+
+function applyResultStaticLabels(){
+    const d = dict();
+    const subs = document.querySelectorAll('#resultView .badge-block .sub');
+    if (subs[0]) subs[0].textContent = d['lbl.accuracy'];
+    if (subs[1]) subs[1].textContent = d['lbl.volume'];
+    const riskKey = document.querySelector('#resultView .risk-full .key');
+    if (riskKey) riskKey.textContent = d['lbl.risk'];
+}
+
+/* доп. i18n для заголовков шагов и ключей результата (если в HTML нет data-i18n) */
+function setFirstText(candidates, text){
+    for (const sel of candidates){
+        const el = typeof sel === 'string' ? document.querySelector(sel) : sel;
+        if (el){ el.textContent = text; return true; }
+    }
+    return false;
+}
+function applyExtraLabelsBase(){
+    const d=dict();
+    // шаги анализа
+    setFirstText(['#step1Title','.step[data-step="1"] .title'], d['an.step1']);
+    setFirstText(['#step1Sub',  '.step[data-step="1"] .sub']  , d['an.step1_sub']);
+    setFirstText(['#step2Title','.step[data-step="2"] .title'], d['an.step2']);
+    setFirstText(['#step2Sub',  '.step[data-step="2"] .sub']  , d['an.step2_sub']);
+    setFirstText(['#step3Title','.step[data-step="3"] .title'], d['an.step3']);
+    setFirstText(['#step3Sub',  '.step[data-step="3"] .sub']  , d['an.step3_sub']);
+    setFirstText(['#step4Title','.step[data-step="4"] .title'], d['an.step4']);
+    setFirstText(['#step4Sub',  '.step[data-step="4"] .sub']  , d['an.step4_sub']);
+    // ключи результата
+    setFirstText(['#labMarket','.res-market .key','[data-res-key="market"]'], d['res.market']);
+    setFirstText(['#labTime',  '.res-time .key',  '[data-res-key="time"]'  ], d['res.time']);
+    setFirstText(['#labPair',  '.res-pair .key',  '[data-res-key="pair"]'  ], d['res.pair']);
+    setFirstText(['#labConf',  '.res-conf .key',  '[data-res-key="conf"]'  ], d['res.confidence']);
+    setFirstText(['#labStr',   '.res-strength .key','[data-res-key="strength"]'], d['res.strength']);
+    setFirstText(['#labValid', '.res-valid .key','[data-res-key="valid"]' ], d['res.valid_until']);
 }
 
 function showResult(){
@@ -604,10 +740,12 @@ function showResult(){
     document.getElementById('resVol')?.replaceChildren(document.createTextNode(Math.random()<0.5 ? 'Low' : 'Medium'));
     document.getElementById('resRisk')?.replaceChildren(document.createTextNode(Math.random()<0.6 ? 'Medium' : 'High'));
 
+    applyResultStaticLabels();
+    applyExtraLabelsBase();
+
     addSignalToStats(+acc);
     showState('result');
 
-    // сохраняем последний результат (если хочешь восстановление после F5)
     saveSignal({ pair, exp, dir:isUp?'UP':'DOWN', conf, strength, valid, acc });
 }
 
@@ -615,7 +753,7 @@ function saveSignal(obj){ localStorage.setItem(KEYS.SIGNAL, JSON.stringify(obj |
 function loadSignal(){ try { return JSON.parse(localStorage.getItem(KEYS.SIGNAL) || '{}'); } catch(e){ return {}; } }
 
 /* =============================================
-   Get Signal + Reset
+   Get Signal + Repeat + Reset
 ============================================= */
 function isAllSelected(){
     return Boolean(getField('instrument') && getField('model') && getField('expiration'));
@@ -628,17 +766,23 @@ function updateGetSignalState(){
 
 (function initGetSignal(){
     const btn = document.getElementById('getSignalBtn');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
+    if (btn){
+        btn.addEventListener('click', () => {
+            if (!isAllSelected()){ showToast(dict()['toast.fill_all']); return; }
+            updateModelLabel();
+            showState('analyzing');
+            runStepsAndFinish(randomAnalyzeDuration(), showResult);
+        });
+    }
+    document.getElementById('repeatBtn')?.addEventListener('click', ()=>{
         if (!isAllSelected()){ showToast(dict()['toast.fill_all']); return; }
         updateModelLabel();
         showState('analyzing');
-        runStepsAndFinish(showResult);
+        runStepsAndFinish(randomAnalyzeDuration(), showResult);
     });
 })();
 
 function resetAll(){
-    // очистка UI
     document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));
     const bar = document.getElementById('progressBar'); if (bar) bar.style.width='0%';
     const txt = document.getElementById('progressText'); if (txt) txt.textContent='0%';
@@ -646,23 +790,23 @@ function resetAll(){
     document.getElementById('resVol')?.replaceChildren(document.createTextNode('Low'));
     document.getElementById('resRisk')?.replaceChildren(document.createTextNode('Medium'));
 
-    // сбрасываем выбранные поля
     clearFields();
     updateModelLabel();
     updateGetSignalState();
 
-    // удаляем сохранённый сигнал
     localStorage.removeItem(KEYS.SIGNAL);
+
+    const actions  = document.getElementById('actionWrap') || document.getElementById('resetWrap');
+    if (actions) actions.hidden = true;
 
     showState('start');
 }
 document.getElementById('resetBtn')?.addEventListener('click', resetAll);
 
 /* =============================================
-   Restore on load (по желанию можно без восстановления результата)
+   Restore on load
 ============================================= */
 function restoreOnLoad(){
-    // restore fields
     const f = getFields();
     if (f.instrument) setFieldValue('instrument', f.instrument);
     if (f.model)      setFieldValue('model',      f.model);
@@ -670,8 +814,8 @@ function restoreOnLoad(){
 
     updateModelLabel();
     updateGetSignalState();
+    applyI18n(getLang());
 
-    // если хочешь возвращать карточку результата после перезагрузки:
     const s = loadSignal();
     if (s && s.pair){
         setDirection((s.dir||'UP')==='UP');
@@ -681,6 +825,8 @@ function restoreOnLoad(){
         document.getElementById('resStrength')?.replaceChildren(document.createTextNode(s.strength || '—'));
         document.getElementById('resValid')?.replaceChildren(document.createTextNode(s.valid || '—:—'));
         document.getElementById('resAcc')?.replaceChildren(document.createTextNode((s.acc!=null?Number(s.acc).toFixed(0)+'%':'—%')));
+        const actions  = document.getElementById('actionWrap') || document.getElementById('resetWrap');
+        if (actions) actions.hidden = false;
         showState('result');
     } else {
         showState('start');

@@ -105,8 +105,8 @@
             <div class="step" data-step="1">
                 <div class="step__icon"></div>
                 <div class="step__content">
-                    <div class="step__title">Технический анализ</div>
-                    <div class="step__sub">Индикаторы и уровни S/R</div>
+                    <div class="step__title" data-i18n="an.step1">Технический анализ</div>
+                    <div class="step__sub" data-i18n="an.step1_sub">Индикаторы и уровни S/R</div>
                 </div>
                 <div class="step__state"></div>
             </div>
@@ -114,8 +114,8 @@
             <div class="step" data-step="2">
                 <div class="step__icon"></div>
                 <div class="step__content">
-                    <div class="step__title">Распознавание паттернов</div>
-                    <div class="step__sub">Тренды и фигуры</div>
+                    <div class="step__title" data-i18n="an.step2">Распознавание паттернов</div>
+                    <div class="step__sub" data-i18n="an.step2_sub">Тренды и фигуры</div>
                 </div>
                 <div class="step__state"></div>
             </div>
@@ -123,8 +123,8 @@
             <div class="step" data-step="3">
                 <div class="step__icon"></div>
                 <div class="step__content">
-                    <div class="step__title">Математические расчёты</div>
-                    <div class="step__sub">Вероятности и риски</div>
+                    <div class="step__title" data-i18n="an.step3">Математические расчёты</div>
+                    <div class="step__sub" data-i18n="an.step3_sub">Вероятности и риски</div>
                 </div>
                 <div class="step__state"></div>
             </div>
@@ -132,8 +132,8 @@
             <div class="step" data-step="4">
                 <div class="step__icon"></div>
                 <div class="step__content">
-                    <div class="step__title">Генерация сигнала</div>
-                    <div class="step__sub">Финальная сборка</div>
+                    <div class="step__title" data-i18n="an.step4">Генерация сигнала</div>
+                    <div class="step__sub" data-i18n="an.step4_sub">Финальная сборка</div>
                 </div>
                 <div class="step__state"></div>
             </div>
@@ -153,33 +153,33 @@
             <div class="info-grid info-2x3">
                 <!-- слева -->
                 <div class="info">
-                    <div class="key">Рынок:</div>
+                    <div class="key" data-i18n="res.market">Рынок:</div>
                     <div class="val">OTC</div>
                 </div>
                 <!-- справа -->
                 <div class="info">
-                    <div class="key">Уверенность:</div>
+                    <div class="key" data-i18n="res.confidence">Уверенность:</div>
                     <div id="resConf" class="val">—%</div>
                 </div>
 
                 <!-- слева -->
                 <div class="info">
-                    <div class="key">Время:</div>
+                    <div class="key" data-i18n="res.time">Время:</div>
                     <div id="resTime" class="val">—</div>
                 </div>
                 <!-- справа -->
                 <div class="info">
-                    <div class="key">Сила:</div>
+                    <div class="key" data-i18n="res.strength">Сила:</div>
                     <div id="resStrength" class="val">—</div>
                 </div>
 
                 <!-- слева -->
                 <div class="info">
-                    <div class="key">Пара:</div>
+                    <div class="key" data-i18n="res.pair">Пара:</div>
                     <div id="resPair" class="val">—</div>
                 </div>
                 <!-- справа -->
-                <div class="info">
+                <div class="info" data-i18n="res.valid_until">
                     <div class="key">Действует до:</div>
                     <div id="resValid" class="val">—:—</div>
                 </div>
@@ -189,25 +189,29 @@
             <div class="info-grid row-2col">
                 <div class="info badge-block">
                     <div id="resAcc" class="big">—%</div>
-                    <div class="sub">точность</div>
+                    <div class="sub" data-i18n="lbl.accuracy">точность</div>
                 </div>
                 <div class="info badge-block">
                     <div id="resVol" class="big">Low</div>
-                    <div class="sub">объём</div>
+                    <div class="sub" data-i18n="lbl.volume">объём</div>
                 </div>
             </div>
 
             <!-- полный ряд -->
             <div class="info risk-full">
-                <div class="key">Риск</div>
+                <div class="key" data-i18n="lbl.risk">Риск</div>
                 <div id="resRisk" class="val">Medium</div>
             </div>
         </div>
     </section>
 
-    <!-- Сброс (показывается только после результата) -->
-    <div id="resetWrap" class="reset-wrap" hidden>
-        <button id="resetBtn" class="reset-btn" data-i18n="btn.reset">Сбросить</button>
+
+    <!-- стало -->
+    <div id="actionWrap" class="reset-wrap" hidden>
+        <div class="actions">
+            <button id="repeatBtn" class="repeat-btn" data-i18n="btn.repeat">Повторить</button>
+            <button id="resetBtn" class="reset-btn" data-i18n="btn.reset">Сбросить</button>
+        </div>
     </div>
 </main>
 
@@ -288,6 +292,8 @@
         <div class="lang-grid">
             <button class="lang-opt" data-lang="ru"><img src="static/img/lang/ru.svg" class="lang-flag" alt=""><span>Русский</span></button>
             <button class="lang-opt" data-lang="en"><img src="static/img/lang/en.svg" class="lang-flag" alt=""><span>English</span></button>
+            <button class="lang-opt" data-lang="es" aria-pressed="false"> <img src="static/img/lang/es.svg" alt="" class="lang-flag"><span>Español</span></button>
+            <button class="lang-opt" data-lang="hi" aria-pressed="false"><img src="static/img/lang/hi.svg" alt="" class="lang-flag"><span>हिन्दी</span></button>
         </div>
         <button class="modal__close" data-close-modal data-i18n="btn.close">Close</button>
     </div>
@@ -324,7 +330,7 @@
         </p>
 
         <div class="vipinfo-list">
-            <div class="vipinfo-item" data-i18n="vipinfo.b1">Точность сигналов выше с VIP</div>
+            <div class="vipinfo-item" data-i18n="vipinfo.b1">Точность сигналов выше с Platinum</div>
             <div class="vipinfo-item" data-i18n="vipinfo.b2">Открытие ещё трёх категорий</div>
             <div class="vipinfo-item" data-i18n="vipinfo.b3">Приоритетная поддержка</div>
             <div class="vipinfo-item" data-i18n="vipinfo.b4">Новая модель аналитики рынка для выдачи сигналов</div>

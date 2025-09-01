@@ -360,3 +360,15 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
     width: 100%;
     display: block;
 }
+/* блок действий под карточкой */
+.reset-wrap .actions{display:flex; gap:10px; justify-content:center}
+
+/* повторить = маленькая «первичная» */
+.repeat-btn{
+    padding:10px 14px; border-radius:12px; color:#fff; font-weight:800;
+    background:linear-gradient(180deg,var(--primary),var(--primary-2));
+    border:1px solid var(--primary-2)
+}
+
+/* сброс = как было */
+.reset-btn{padding:10px 14px; border-radius:12px; background:transparent; border:1px dashed var(--stroke); color:var(--text)}
