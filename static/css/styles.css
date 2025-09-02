@@ -7,11 +7,19 @@
     --radius:16px;
     --fz-base:15px; --fz-sm:13px; --fz-lg:17px; --fw-regular:500; --fw-bold:800;
     --pad:14px; --gap:12px;
+
+    /* Темизация иконок (две стратегии для чёрных/белых исходников) */
+    --icon-filter-black-src: invert(0);                 /* тёмный src в светлой теме → чёрный */
+    --icon-filter-white-src: invert(1) brightness(.9);  /* белый src в светлой теме → чёрный */
 }
 html[data-theme="light"]{
     --bg:#f5f7fb; --card:#fff; --card-2:#f0f2f6; --text:#101318; --muted:#616a78; --stroke:#e0e3ea;
     --shadow:0 8px 26px rgba(0,0,0,.08);
     --glass:linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.02));
+}
+html[data-theme="dark"]{
+    --icon-filter-black-src: invert(1) brightness(1.2); /* тёмный src в тёмной теме → белый */
+    --icon-filter-white-src: invert(0);                 /* белый src в тёмной теме → белый */
 }
 
 *{box-sizing:border-box}
@@ -123,8 +131,9 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
 .progress{height:8px; border-radius:999px; overflow:hidden; margin-top:6px; background:rgba(255,255,255,.08); border:1px solid var(--stroke)}
 .progress__bar{
     height:100%; width:0;
-    background:linear-gradient(90deg,#2ea7d1,#21c37a),repeating-linear-gradient(45deg,rgba(255,255,255,.18) 0 8px,transparent 8px 16px);
-    transition:width .5s cubic-bezier(.2,.8,.3,1)
+    background:linear-gradient(90deg,#2ea7d1,#21c37a),
+    repeating-linear-gradient(45deg,rgba(255,255,255,.18) 0 8px,transparent 8px 16px);
+    transition: width .08s linear; /* плавнее и без рывков */
 }
 .progress__text{text-align:center; color:var(--muted); font-size:var(--fz-sm); margin-top:6px}
 
@@ -142,8 +151,7 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
     clip-path:polygon(50% 0,0 60%,28% 60%,28% 100%,72% 100%,72% 60%,100% 60%)
 }
 .dir-arrow.up{color:var(--success)}
-.dir-arrow.down{color:var(--danger); transform:rotate(180deg)} /* стрелка вниз */
-
+.dir-arrow.down{color:var(--danger); transform:rotate(180deg)}
 .dir-text{font-size:34px; font-weight:900; letter-spacing:2px; text-transform:uppercase}
 .dir-text.up{color:var(--success)}
 .dir-text.down{color:var(--danger)}
@@ -162,10 +170,16 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
 .badge-block .big{font-size:26px; font-weight:900}
 .badge-block .sub{font-size:var(--fz-sm); color:var(--muted); text-transform:uppercase; letter-spacing:.5px}
 
-/* ===== Reset ===== */
+/* ===== Reset / Actions ===== */
 .reset-wrap{display:grid; place-items:center; margin-top:12px}
 .reset-wrap[hidden]{display:none!important}
 .reset-btn{padding:10px 16px; border-radius:12px; background:transparent; border:1px dashed var(--stroke); color:var(--text)}
+.reset-wrap .actions{display:flex; gap:10px; justify-content:center}
+.repeat-btn{
+    padding:10px 14px; border-radius:12px; color:#fff; font-weight:800;
+    background:linear-gradient(180deg,var(--primary),var(--primary-2));
+    border:1px solid var(--primary-2)
+}
 
 /* ===== Modals (общие) ===== */
 .modal{position:fixed; inset:0; display:none; z-index:80}
@@ -177,8 +191,6 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
     box-shadow:var(--shadow); width:min(96%,900px); max-height:92vh; overflow:auto; padding:16px
 }
 .modal__title{font-weight:900; margin:0 0 12px}
-
-/* кнопка «Закрыть» по центру во всех модалках */
 .modal__close{
     display:block; margin:14px auto 4px; min-width:140px; text-align:center;
     padding:10px 14px; border-radius:12px;
@@ -217,7 +229,6 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
     transparent 100%);
     opacity:.9; margin-top:10px;
 }
-
 @media (max-width: 520px){
     .modal__dialog--instr .instr__layout{grid-template-columns:1fr}
     .modal__dialog--instr .instr__cats::after{display:block}
@@ -253,122 +264,91 @@ button{font:inherit; color:inherit; cursor:pointer; background:none; border:none
 .key{color:var(--muted)} .val{font-weight:var(--fw-bold)}
 
 /* ===== Adaptive ===== */
-/* Держим 2 колонки на мобильных; в одну колонку — только на очень узких */
 .info-2x3, .row-2col{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
 @media (max-width:360px){
     .info-2x3, .row-2col{grid-template-columns:1fr !important;}
 }
-
-/* на очень узких переводим модальные сетки и т.п. */
 @media (max-width:520px){
     .instr__layout{grid-template-columns:1fr}
 }
 
 /* ===== Model modal (карточки моделей) ===== */
 .modal__dialog--model{ width:min(92%, 420px); }
-
-.model-list{
-    display:grid;
-    gap:10px;
-}
-
+.model-list{ display:grid; gap:10px; }
 .model-item{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    width:100%;
-    padding:12px 14px;
-    border:1px solid var(--stroke);
-    border-radius:12px;
-    background:var(--glass);
-    text-align:left;
-    font-weight:800;
+    display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
+    padding:12px 14px; border:1px solid var(--stroke); border-radius:12px; background:var(--glass);
+    text-align:left; font-weight:800;
 }
-
-.model-item.is-active{
-    outline:2px solid color-mix(in oklab, var(--primary) 45%, transparent);
-}
-
-.model-item:disabled,
-.model-item[disabled]{
-    opacity:.55;
-    filter:saturate(.7);
-    cursor:not-allowed;
-}
-
-.model-item__name{
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-}
-
+.model-item.is-active{ outline:2px solid color-mix(in oklab, var(--primary) 45%, transparent); }
+.model-item:disabled, .model-item[disabled]{ opacity:.55; filter:saturate(.7); cursor:not-allowed; }
+.model-item__name{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .model-item__tag{
-    font-size:12px;
-    font-weight:900;
-    padding:2px 8px;
-    border-radius:999px;
-    color:#222;
-    background:linear-gradient(180deg,#ffd56b,#f2b941);
-    border:1px solid rgba(0,0,0,.15);
+    font-size:12px; font-weight:900; padding:2px 8px; border-radius:999px; color:#222;
+    background:linear-gradient(180deg,#ffd56b,#f2b941); border:1px solid rgba(0,0,0,.15);
 }
 
 /* Locked categories (Инструменты) */
-.instr-cat.is-locked{
-    opacity:.55;
-    position:relative;
-}
+.instr-cat.is-locked{ opacity:.55; position:relative; }
 .instr-cat.is-locked::after{
-    content:"🔒";
-    position:absolute;
-    right:10px;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:14px;
-    opacity:.8;
+    content:"🔒"; position:absolute; right:10px; top:50%; transform:translateY(-50%);
+    font-size:14px; opacity:.8;
 }
 
 /* ===== VIP Info modal ===== */
 .modal__dialog--vip{ width:min(92%,520px) }
-
-.vipinfo-hero{
-    display:flex; align-items:center; justify-content:center; gap:12px;
-    margin:-2px 0 8px;
-}
+.vipinfo-hero{ display:flex; align-items:center; justify-content:center; gap:12px; margin:-2px 0 8px; }
 .vipinfo-ic{ width:58px; height:58px; object-fit:contain; }
 .vipinfo-arr{ width:28px; height:28px; opacity:.8 }
-
-.vipinfo-note{
-    margin:6px 2px 12px;
-    color:var(--muted); font-size:14px; line-height:1.45;
-    text-align:center;
-}
-
+.vipinfo-note{ margin:6px 2px 12px; color:var(--muted); font-size:14px; line-height:1.45; text-align:center; }
 .vipinfo-list{ display:grid; gap:10px }
 .vipinfo-item{
-    padding:12px 14px; border-radius:14px;
-    border:1px solid var(--stroke);
-    background:var(--glass);
-    font-weight:500;
+    padding:12px 14px; border-radius:14px; border:1px solid var(--stroke); background:var(--glass); font-weight:500;
+}
+/* Центруем заголовок в VIP-модалке */
+#vipInfoModal .modal__title, .modal__dialog--vip .modal__title{
+    text-align:center; margin:6px 0 10px; width:100%; display:block;
 }
 
-/* Центруем заголовок только в VIP-модалке */
-#vipInfoModal .modal__title,
-.modal__dialog--vip .modal__title{
-    text-align: center;
-    margin: 6px 0 10px;
-    width: 100%;
-    display: block;
-}
-/* блок действий под карточкой */
-.reset-wrap .actions{display:flex; gap:10px; justify-content:center}
+/* === Themed icons classes (использование на <img>) === */
+/* Для ЧЁРНОГО исходника (обычный случай): */
+img.icon-auto-filter{ filter: var(--icon-filter-black-src); transition: filter .2s ease; }
+/* Для БЕЛОГО исходника: */
+img.icon-auto-filter--white{ filter: var(--icon-filter-white-src); transition: filter .2s ease; }
+/* Inline SVG, если используешь: */
+/* .icon-svg { color: var(--text); fill: currentColor; } */
 
-/* повторить = маленькая «первичная» */
-.repeat-btn{
-    padding:10px 14px; border-radius:12px; color:#fff; font-weight:800;
-    background:linear-gradient(180deg,var(--primary),var(--primary-2));
-    border:1px solid var(--primary-2)
+/* ===================== THEMED MONO ICONS ===================== */
+/* Чёрные исходники (png/svg) → в тёмной теме становятся белыми */
+html[data-theme="dark"]  img.icon-src-black { filter: invert(1) brightness(1.1) contrast(1.05); }
+html[data-theme="light"] img.icon-src-black { filter: none; }
+
+/* Белые исходники (png/svg) → в светлой теме становятся чёрными */
+html[data-theme="light"] img.icon-src-white { filter: invert(1) brightness(.0) contrast(1.1); }
+html[data-theme="dark"]  img.icon-src-white { filter: none; }
+
+/* Единый размер для кнопок в хедере и сайдбаре */
+.icon-btn img{ width:20px; height:20px; display:block }
+.menu-item img{ width:18px; height:18px; display:block }
+
+/* (опц.) слегка приглушим иконки в сайдбаре, но оставим читаемыми */
+.menu-item img{ opacity:.9 }
+
+/* базовая геометрия всех кнопок иконок в хедере */
+.app-header .icon-btn{
+    width:36px; height:36px;            /* hitbox остаётся прежним */
+    display:grid; place-items:center;
+    border-radius:10px;
+    --icon-size: 18px;                   /* базовый размер пиктограмм */
 }
 
-/* сброс = как было */
-.reset-btn{padding:10px 14px; border-radius:12px; background:transparent; border:1px dashed var(--stroke); color:var(--text)}
+/* картинка/иконка внутри */
+.app-header .icon-btn > img,
+.app-header .icon-btn > svg{
+    width:var(--icon-size);
+    height:var(--icon-size);
+    object-fit:contain;
+}
+
+/* ТОЛЬКО правая иконка — больше */
+#rightIconBtn{ --icon-size: 30px; }    /* подберите 24–30px как нравится */

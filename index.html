@@ -11,8 +11,10 @@
 <!-- ===== Header ===== -->
 <header class="app-header">
     <button id="burgerBtn" class="icon-btn" aria-label="Menu">
-        <img src="static/img/burger.svg" alt="">
+        <!-- burger.svg у тебя чёрный → делаем icon-src-black -->
+        <img src="static/img/burger.svg" alt="" class="icon-src-white">
     </button>
+
 
     <div class="header-center">
         <img id="logoImg" class="logo"
@@ -23,7 +25,8 @@
     </div>
 
     <button id="rightIconBtn" class="icon-btn" aria-label="Info">
-        <img src="static/img/base.svg" class="tier-img" alt="">
+        <img src="static/img/base.svg" class="" alt="">
+
     </button>
 </header>
 
@@ -35,15 +38,15 @@
     </div>
     <nav class="menu">
         <button id="nav-stats" class="menu-item">
-            <img src="static/img/icons/stats.svg" alt="">
+            <img src="static/img/icons/stats.svg" alt="" class="icon-src-white">
             <span data-i18n="menu.stats">Ваша статистика</span>
         </button>
         <button id="nav-lang" class="menu-item">
-            <img src="static/img/icons/globe.svg" alt="">
+            <img src="static/img/icons/globe.svg" alt="" class="icon-src-white">
             <span data-i18n="menu.language">Выбор языка</span>
         </button>
         <button id="nav-theme" class="menu-item">
-            <img src="static/img/icons/theme.svg" alt="">
+            <img src="static/img/icons/theme.svg" alt="" class="icon-src-white">
             <span data-i18n="menu.theme">Тема</span>
         </button>
     </nav>
@@ -198,10 +201,7 @@
             </div>
 
             <!-- полный ряд -->
-            <div class="info risk-full">
-                <div class="key" data-i18n="lbl.risk">Риск</div>
-                <div id="resRisk" class="val">Medium</div>
-            </div>
+
         </div>
     </section>
 
@@ -226,8 +226,8 @@
         <!-- Поиск сверху -->
         <div class="instr__search">
             <div class="search">
-                <img src="static/img/icons/search.svg" alt="">
-                <input id="instrSearch" type="text" placeholder="Поиск...">
+                <img src="static/img/icons/search.svg" alt="" class="icon-src-white">
+                <input id="instrSearch" type="text" placeholder="Search...">
             </div>
         </div>
 

@@ -644,35 +644,49 @@ function randomAnalyzeDuration(){
     return Math.floor(min + ((a+b)/2)*(max-min));
 }
 
-function runStepsAndFinish(totalMs, onDone){
-    const steps = Array.from(document.querySelectorAll('.step'));
-    const bar   = document.getElementById('progressBar');
-    const txt   = document.getElementById('progressText');
+function smoothAnalyze(totalMs, onDone, labels){
+    const stepsEls = Array.from(document.querySelectorAll('.step'));
+    const bar = document.getElementById('progressBar');
+    const txt = document.getElementById('progressText');
 
-    const n = steps.length || 4;
-    const base = totalMs / n;
-    const parts = Array.from({length:n},()=> base * (0.85 + Math.random()*0.3));
-    const sum = parts.reduce((a,b)=>a+b,0);
-    for (let i=0;i<n;i++) parts[i] = parts[i]*totalMs/sum;
+    // reset
+    stepsEls.forEach(s=>s.classList.remove('done'));
+    if (bar) bar.style.width = '0%';
+    if (txt) txt.textContent = '0%';
 
-    let i = 0;
-    function tick(){
-        if (i>0) steps[i-1].classList.add('done');
-        const progress = Math.min(100, Math.round((i/n)*100));
-        if (bar) bar.style.width = progress + '%';
-        if (txt) txt.textContent = progress + '%';
+    const start = performance.now();
+    let lastPhase = -1; // 0..3
 
-        if (i < n){
-            const delay = parts[i++];
-            setTimeout(tick, delay);
+    function raf(now){
+        const elapsed = now - start;
+        const p = Math.min(1, elapsed / totalMs);
+        const pct = Math.round(p * 100);
+
+        // текущая фаза по диапазонам процентов: 0..24, 25..49, 50..74, 75..100
+        const phase = Math.min(3, Math.floor(pct / 25));
+
+        // визуал
+        if (bar) bar.style.width = pct + '%';
+        if (phase !== lastPhase){
+            if (phase > 0 && stepsEls[phase-1]) stepsEls[phase-1].classList.add('done');
+            lastPhase = phase;
+        }
+        if (txt){
+            const label = labels?.[phase] || '';
+            txt.textContent = `${pct}% • ${label}`;
+        }
+
+        if (p < 1){
+            requestAnimationFrame(raf);
         } else {
-            setTimeout(()=>{ if (bar) bar.style.width='100%'; if (txt) txt.textContent='100%'; onDone(); }, 300);
+            // финализация
+            stepsEls.forEach(s=>s.classList.add('done'));
+            if (bar) bar.style.width = '100%';
+            if (txt) txt.textContent = `100% • ${labels?.[3] || ''}`;
+            setTimeout(onDone, 300);
         }
     }
-    steps.forEach(s=>s.classList.remove('done'));
-    if (bar) bar.style.width='0%';
-    if (txt) txt.textContent='0%';
-    tick();
+    requestAnimationFrame(raf);
 }
 
 function randomAccuracy(exp){
@@ -771,16 +785,32 @@ function updateGetSignalState(){
             if (!isAllSelected()){ showToast(dict()['toast.fill_all']); return; }
             updateModelLabel();
             showState('analyzing');
-            runStepsAndFinish(randomAnalyzeDuration(), showResult);
+
+            const d = dict();
+            const phaseLabels = [ d['an.step1'], d['an.step2'], d['an.step3'], d['an.step4'] ];
+            const dur = (typeof randomAnalyzeDuration === 'function')
+                ? randomAnalyzeDuration()
+                : Math.floor(3200 + Math.random()*3300); // 3.2–6.5s
+
+            smoothAnalyze(dur, showResult, phaseLabels);
         });
     }
+
     document.getElementById('repeatBtn')?.addEventListener('click', ()=>{
         if (!isAllSelected()){ showToast(dict()['toast.fill_all']); return; }
         updateModelLabel();
         showState('analyzing');
-        runStepsAndFinish(randomAnalyzeDuration(), showResult);
+
+        const d = dict();
+        const phaseLabels = [ d['an.step1'], d['an.step2'], d['an.step3'], d['an.step4'] ];
+        const dur = (typeof randomAnalyzeDuration === 'function')
+            ? randomAnalyzeDuration()
+            : Math.floor(3200 + Math.random()*3300);
+
+        smoothAnalyze(dur, showResult, phaseLabels);
     });
 })();
+
 
 function resetAll(){
     document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));
