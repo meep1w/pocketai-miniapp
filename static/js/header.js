@@ -222,7 +222,13 @@ const KEYS = {
 /* =============================================
    Lang helpers & i18n
 ============================================= */
-function getLang(){ return localStorage.getItem(KEYS.LANG) || 'ru'; }
+function getLang(){
+    const saved = localStorage.getItem(KEYS.LANG);
+    if (saved) return saved;
+    localStorage.setItem(KEYS.LANG, 'en');  // дефолт = EN
+    return 'en';
+}
+
 function dict(){ return I18N[getLang()] || I18N.ru; }
 
 function applyI18n(lang) {
@@ -742,8 +748,11 @@ function showResult(){
     const conf = Math.floor(75 + Math.random()*21);             // 75–95
     const strength = Math.random()<0.55 ? 'Medium' : 'High';
     const acc = randomAccuracy(exp);
-    const plusMin = Math.random()<0.5 ? 1 : 2;
-    const valid = new Date(Date.now() + plusMin*60*1000).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    const plusMin = Math.random() < 0.5 ? 1 : 2;
+    const valid = msToMoscowTimeString(new Date(Date.now() + plusMin*60*1000));
+    document.getElementById('resValid')?.replaceChildren(document.createTextNode(valid));
+
+
 
     document.getElementById('resTime')?.replaceChildren(document.createTextNode(exp || '—'));
     document.getElementById('resPair')?.replaceChildren(document.createTextNode(pair || '—'));
@@ -811,6 +820,18 @@ function updateGetSignalState(){
     });
 })();
 
+function msToMoscowTimeString(date){
+    try {
+        return date.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Europe/Moscow'
+        });
+    } catch(e){
+        // если нет таймзоны в окружении — упадём на локаль как запасной вариант
+        return date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    }
+}
 
 function resetAll(){
     document.querySelectorAll('.step').forEach(s=>s.classList.remove('done'));
